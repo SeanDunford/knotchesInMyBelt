@@ -1,0 +1,132 @@
+<html> 
+<head> 
+	<link href="http://fnt.webink.com/wfs/webink.css/?project=29039664-B1EF-4215-8FF3-76BDE6923E92&fonts=880096C9-42EC-CFB6-C094-7540101C8F7B:f=Aller-BoldItalic,521D5111-7D3C-B8EC-88B6-BBED2BE5F224:f=Aller-LightItalic,32A3E230-3101-A662-F6D5-D8B9D0A38A5B:f=Aller-Regular,1B6C2E6C-BB21-53D3-2175-C814D91AD16C:f=Aller-Bold,C7662775-65E4-3DE5-DE19-D61377E1BE79:f=Aller-Light,9C5DF801-C745-E177-908F-369BCECD52B7:f=Aller-Italic" rel="stylesheet" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	h1 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif; 
+		font-weight: 300; 
+		font-size: 23; 
+		vertical-align: center; 
+	}
+	h2 {
+		padding: 0;
+		margin: 0;
+		font-family: Lato, sans-serif;
+		font-weight: 100; 
+		font-size: 19; 
+	}
+	#header {
+		width: 100%;
+	}
+	div.logo {
+		float: left;
+		width: 10%;
+	}
+	div.name {
+		float: left;
+		width: 80%;
+		text-align: center;
+	}
+	div.clear-left {
+		width: 10%;
+		clear: left;
+	}
+	div.userInformation{
+		background-color: f9f8f8; 
+
+	}
+	img.userImage{
+		
+	}
+	div.smallSpacer{
+		height:1.5em;
+	}
+	div.userInformation{
+		text-align: center; 
+	}
+	div.colorDispersionContainer{
+		background-color: 273137;
+		text-align: center; 
+		padding-top: 15px; 
+		padding-bottom: 15px;
+		height: 15px; 
+	}
+	img.userImage{
+		margin-bottom: 0.5em; 
+	}
+	div.userStatsContainer{
+
+	}
+	span.userStats{
+		font-family: Lato, sans-serif;
+		font-weight: 300; 
+		font-size: 15; 
+	}
+	span.userStatsNumber{
+		font-family: Lato, sans-serif;
+		font-weight: 500;
+		font-size: 15;  
+	}
+	span.pipeSpacing{
+		padding-left:  100px; 
+		padding-right: 100px; 
+	}
+	</style>
+</head> 
+<body> 
+	<div id="header" background="assets/nav-bar.png">
+		<div class="logo">
+			<img src="assets/knotch-logo.png" alt="knotchLogo" >
+		</div>
+		<div class="name">
+			<h1 id ="headerName">Aron Tzimas</h1>
+		</div>
+		<div class="clear-left"></div>
+	</div>
+	<div class="userInformation">
+		<div class="smallSpacer"></div>
+		<img class = "userImage" src="assets/userPicture.gif" alt="userPicture">
+		<h1 id ="userName">Aron Tzimas</h1>
+		<h2 id ="userLocation">San Francisco, California</h2>
+		<div class="smallSpacer"></div>
+		<div id="userStatsContainer">
+			<span class ="userStatsNumber" id="topicStats"> 		180 </span>
+			<span class ="userStats" id="topicStats"> Topics</span>
+			<span class"pipeSpacing">|</span>
+			<span class ="userStatsNumber" id="FollowersStats"> 	5684 </span>
+			<span class ="userStats" id="FollowersStats">	Followers</span>
+			<span class"pipeSpacing">|</span>
+			<span class ="userStatsNumber" id="FollowingStats"> 	1288 </span>
+			<span class ="userStats" id="FollowingStats">Following</span>
+			<span class"pipeSpacing">|</span>
+			<span class ="userStatsNumber" id="GloryStats"> 		18,063 </span>
+			<span class ="userStats" id="GloryStats">Glory</span>
+		</div>
+		<div class="smallSpacer"></div>
+		<div class ="colorDispersionContainer">
+			<img class = "userImage" src="assets/knotch-sentnements-bar.png" alt="userPicture">
+		</div>
+		<div class="smallSpacer"></div>
+	</div>
+	<!--Reusable Topic/Comment Markup-->
+	<div id="knotches">
+		<h1 class = "KnotchTitle"></h1>
+		<div class = "usersOpinion">I like this.</div>
+		<img src = "littleTriangle">
+		<img src="userPicture" alt="knotckLogo" height="42" width="42">
+		<h1 id ="userName">Wade Wilson</h1>
+		<br>
+		<!-- Reusable comment Code -->
+		<div id="comment">
+			<img src="commentorsPicture" alt="knotckLogo" height="42" width="42">
+			<h3 id="comment">I don't like dis</h3>
+		</div>
+		<!-- New Comment -->
+		<input type="newComment" value="Enter your Comment here. ">
+		<!--Reusable Topic/Comment Markup-->	
+		<div >
+		</div> 
+	</body> 
+	</html>
