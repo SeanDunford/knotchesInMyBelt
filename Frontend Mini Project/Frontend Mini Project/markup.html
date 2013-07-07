@@ -17,6 +17,13 @@
 		font-weight: 100; 
 		font-size: 19; 
 	}
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
 	#header {
 		width: 100%;
 	}
@@ -49,15 +56,24 @@
 	div.colorDispersionContainer{
 		background-color: 273137;
 		text-align: center; 
-		padding-top: 15px; 
-		padding-bottom: 15px;
-		height: 15px; 
+		padding-top: 20px; 
+		padding-bottom: 20px;
+		height: 10px; 
 	}
 	img.userImage{
-		margin-bottom: 0.5em; 
+		
+	}
+	div.testUserStats{
+		float: left;
+		width: 10%;
+		text-align: left;
 	}
 	div.userStatsContainer{
-
+		width: 100%;
+	}
+	div.userStatsSpacer{
+		float: left;
+		width: 30%;
 	}
 	span.userStats{
 		font-family: Lato, sans-serif;
@@ -68,10 +84,62 @@
 		font-family: Lato, sans-serif;
 		font-weight: 500;
 		font-size: 15;  
+		width: 0.5%;
 	}
-	span.pipeSpacing{
-		padding-left:  100px; 
-		padding-right: 100px; 
+	div.pipeSpacing{
+		float: left;
+		width: 2%;
+		text-align: center;
+	}
+	div.knotchHeaderSpacer{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.knotchHeaderTitle{
+		float: left;
+		width: 25%;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
+	div.knotchHeaderArrow{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.usersOpinionBubble{
+		background-color: #2e5ca6; 
+		height: 200px;
+		width:  41%;
+		float: left;
+	}
+	div.usersOpinion{
+		margin-right:  50px;
+		margin-left:   50px;
+		margin-top:	   50px;
+		margin-bottom: 50px; 
+		vertical-align: center; 
+
+		}
+	div.usersOpinionSpacer{
+		width:  30%;
+		float: left;
+	}
+	div.knotchBoxSpacer{
+		width:	31%;
+		float:	left;
+	}
+	div.knotchBox{
+		width: 65%;
+		float:	left;
+
+	}
+	img.commentAvatar{
+		height: 42px;
 	}
 	</style>
 </head> 
@@ -92,17 +160,26 @@
 		<h2 id ="userLocation">San Francisco, California</h2>
 		<div class="smallSpacer"></div>
 		<div id="userStatsContainer">
-			<span class ="userStatsNumber" id="topicStats"> 		180 </span>
-			<span class ="userStats" id="topicStats"> Topics</span>
-			<span class"pipeSpacing">|</span>
-			<span class ="userStatsNumber" id="FollowersStats"> 	5684 </span>
-			<span class ="userStats" id="FollowersStats">	Followers</span>
-			<span class"pipeSpacing">|</span>
-			<span class ="userStatsNumber" id="FollowingStats"> 	1288 </span>
-			<span class ="userStats" id="FollowingStats">Following</span>
-			<span class"pipeSpacing">|</span>
-			<span class ="userStatsNumber" id="GloryStats"> 		18,063 </span>
-			<span class ="userStats" id="GloryStats">Glory</span>
+		<div class="userStatsSpacer">&nbsp;</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="topicStats"> 		180 </span>
+				<span class ="userStats" id="topicStats"> Topics</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="FollowersStats"> 	5684 </span>
+				<span class ="userStats" id="FollowersStats">	Followers</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="FollowingStats"> 	1288 </span>
+				<span class ="userStats" id="FollowingStats">Following</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="GloryStats"> 		18,063 </span>
+				<span class ="userStats" id="GloryStats">Glory</span>
+			</div>
 		</div>
 		<div class="smallSpacer"></div>
 		<div class ="colorDispersionContainer">
@@ -112,10 +189,30 @@
 	</div>
 	<!--Reusable Topic/Comment Markup-->
 	<div id="knotches">
-		<h1 class = "KnotchTitle"></h1>
-		<div class = "usersOpinion">I like this.</div>
-		<img src = "littleTriangle">
-		<img src="userPicture" alt="knotckLogo" height="42" width="42">
+		<div class="smallSpacer"></div>
+		<div class="knotchHeader">
+			<div class="knotchHeaderSpacer">&nbsp;</div>
+			<div class="knotchHeaderTitle">
+				Jurassic Park 3D
+			</div>
+			<div class="knotchHeaderArrow">
+				<img src = "assets\topic-arrow.png" alt="goToKnotch">
+			</div>
+		</div>
+		<div class="clear-left"></div>
+		<div class="smallSpacer"></div>
+		<div class="usersOpinionSpacer">&nbsp;</div>
+		<div class = "usersOpinionBubble">
+			<div class="usersOpinion">I like dis.</div>
+		</div>
+		<div class="clear-left"></div>
+		<div class="knotchBoxSpacer">&nbsp;</div>
+		<div class="knotchBox">
+			<img src = "knotch boxes\triangle0.png" alt="goToKnotch">
+		</div>
+		<div class="smallSpacer"></div>
+		<img class="commentAvatar" src="assets/userPicture.gif">
+		<img src="userPicture" alt="knotchLogo" height="42" width="42">
 		<h1 id ="userName">Wade Wilson</h1>
 		<br>
 		<!-- Reusable comment Code -->
