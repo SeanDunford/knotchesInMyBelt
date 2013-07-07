@@ -41,11 +41,8 @@
 		clear: left;
 	}
 	div.userInformation{
-		background-color: f9f8f8; 
+		background-color: #f9f8f8; 
 
-	}
-	img.userImage{
-		
 	}
 	div.smallSpacer{
 		height:1.5em;
@@ -54,14 +51,11 @@
 		text-align: center; 
 	}
 	div.colorDispersionContainer{
-		background-color: 273137;
+		background-color: #273137;
 		text-align: center; 
 		padding-top: 20px; 
 		padding-bottom: 20px;
 		height: 10px; 
-	}
-	img.userImage{
-		
 	}
 	div.testUserStats{
 		float: left;
@@ -124,7 +118,7 @@
 		margin-bottom: 50px; 
 		vertical-align: center; 
 
-		}
+	}
 	div.usersOpinionSpacer{
 		width:  30%;
 		float: left;
@@ -136,10 +130,21 @@
 	div.knotchBox{
 		width: 65%;
 		float:	left;
-
 	}
-	img.commentAvatar{
-		height: 42px;
+	div.comment{
+		width: 65%;
+		float:	left;
+	}
+	span.userName{
+		margin-left: 10px;
+	}
+	a.userName{
+		color: #ff6d3a; 
+	}
+	input.newCommentBox {
+		border: 1px solid #f9f8f8; 
+		color: #ffffff; 
+		width: 200px; 
 	}
 	</style>
 </head> 
@@ -160,7 +165,7 @@
 		<h2 id ="userLocation">San Francisco, California</h2>
 		<div class="smallSpacer"></div>
 		<div id="userStatsContainer">
-		<div class="userStatsSpacer">&nbsp;</div>
+			<div class="userStatsSpacer">&nbsp;</div>
 			<div class="testUserStats">
 				<span class ="userStatsNumber" id="topicStats"> 		180 </span>
 				<span class ="userStats" id="topicStats"> Topics</span>
@@ -211,19 +216,27 @@
 			<img src = "knotch boxes\triangle0.png" alt="goToKnotch">
 		</div>
 		<div class="smallSpacer"></div>
-		<img class="commentAvatar" src="assets/userPicture.gif">
-		<img src="userPicture" alt="knotchLogo" height="42" width="42">
-		<h1 id ="userName">Wade Wilson</h1>
-		<br>
+		<div class="usersOpinionSpacer">&nbsp;</div>
+		<div class="comment">
+			<img height="42px" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
+		</div>
 		<!-- Reusable comment Code -->
-		<div id="comment">
-			<img src="commentorsPicture" alt="knotckLogo" height="42" width="42">
-			<h3 id="comment">I don't like dis</h3>
+		<div class="usersOpinionSpacer">&nbsp;</div>
+		<div class="comment">
+			<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span class ="UserName">I don't like dis.</span>
+		</div>
+		<div class="usersOpinionSpacer">&nbsp;</div>
+		<div class="comment">
+			<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span class ="UserName">I don't like dis.</span>
 		</div>
 		<!-- New Comment -->
-		<input type="newComment" value="Enter your Comment here. ">
+		<div class="usersOpinionSpacer">&nbsp;</div>
+		<div class="comment">
+			<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
+		</div>
+		<div class="clear-left"></div>
+		<div class="smallSpacer"></div>
 		<!--Reusable Topic/Comment Markup-->	
-		<div >
-		</div> 
+		
 	</body> 
 	</html>
