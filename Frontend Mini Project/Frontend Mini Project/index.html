@@ -190,7 +190,7 @@
 					$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
 					$(".usersOpinion").text(data.knotches[knotchCount].comment);
 					$(".usersOpinionBubble").css("background-color", colorCode[data.knotches[knotchCount].sentiment]); 
-					 var triangle = encodeURIComponent("knotchBoxes\\triangle0.png" + data.knotches[knotchCount].sentiment + ".png");
+					 var triangle = "knotchBoxes/triangle" + data.knotches[knotchCount].sentiment + ".png";
 					 $(".knotchTriangle").attr("src", triangle);
 					//Don't forget. What if it's a white bubble? 
 					if(data.knotches[knotchCount].replies.length > 0){
