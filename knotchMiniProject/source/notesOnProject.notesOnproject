@@ -30,6 +30,7 @@ Assumptions:
 
 Improvements:
 	Add Testing
+	Use real git pattern like git flow
 	Div, div, div, div, div, div, div, div....
 	Use more backend  to figure stuff out? 
 	Better, use something like angular backbone patterns? 

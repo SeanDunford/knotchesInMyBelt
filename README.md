@@ -1,4 +1,0 @@
-knotchesInMyBelt
-================
-
-Knotch.IT clone
