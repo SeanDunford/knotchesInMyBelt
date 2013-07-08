@@ -30,6 +30,7 @@
 	div.logo {
 		float: left;
 		width: 10%;
+		margin-left: 10px; 
 	}
 	div.name {
 		float: left;
@@ -149,10 +150,9 @@
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-
 	function doStuff()
-	{ $.ajax({
+	{ 
+		$.ajax({
 		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/100"),
 		context: document.body
 	}).done(function(data) {
@@ -190,6 +190,8 @@
 					$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
 					$(".usersOpinion").text(data.knotches[knotchCount].comment);
 					$(".usersOpinionBubble").css("background-color", colorCode[data.knotches[knotchCount].sentiment]); 
+					 var triangle = encodeURIComponent("knotchBoxes\\triangle0.png" + data.knotches[knotchCount].sentiment + ".png");
+					 $(".knotchTriangle").attr("src", triangle);
 					//Don't forget. What if it's a white bubble? 
 					if(data.knotches[knotchCount].replies.length > 0){
 						for(var replyCount=0;i < data.knotches[knotchCount].replies.length;i++)
@@ -274,7 +276,7 @@
 			<div class="clear-left"></div>
 			<div class="knotchBoxSpacer">&nbsp;</div>
 			<div class="knotchBox">
-				<img src = "knotch boxes\triangle0.png" alt="goToKnotch">
+				<img class ="knotchTriangle" src = "knotchBoxes\triangle0.png" alt="goToKnotch">
 			</div>
 			<div class="smallSpacer"></div>
 			<div class="usersOpinionSpacer">&nbsp;</div>
