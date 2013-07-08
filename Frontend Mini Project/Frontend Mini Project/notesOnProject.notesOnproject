@@ -1,7 +1,13 @@
-Write an email {when? how close? not really backend? efficient? Dynamic color bar? }
-Finish up Ui 
+
+
+
 Touch up UI
+	- Gradient wtf
+	- Fix Piped List
+	- Fix Comment Box
 Add javascript dynanicism
+	- Loop Though Knotches
+	- Loop Through Comments
 
 
 Add Gradient
@@ -15,9 +21,15 @@ square all middle elements up better
 Assumptions:
 
 	You didn't want me to get the font sizes and margins exact. I obsessed over this too much and it's still not perfect. 
-
+	Sentement bar is supposed to be static for this example. I didn't see any indication in the data that it could be calculated. I would probably make a canvas/span or float colored divs. Use total knotches and values of each sentement to calculate percentages. 
 
 
 
 Improvements:
 	Div, div, div, div, div, div, div, div....
+	Use more backend  to figure stuff out? 
+	Better, use something like angular backbone patterns? 
+
+
+
+Sentement vs Sentiment?
