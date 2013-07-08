@@ -8,7 +8,7 @@ Touch up UI
 	- Fix some fonts
 	- square all middle elements up better 
 	- Hash the little triangle 
-	- White knotch on White Background
+	- Fix color of User Links
 
 Add javascript dynanicism
 	- Loop Though Knotches
@@ -37,6 +37,9 @@ Improvements:
 	Better Javascript optimization 
 	Don't use the web fonts...Couldn't figure out how to use local stuff
 	Use Sass or something equivalent to make css better 
+	White knotch on White Background
+		-No border looks silly becasue box has border and it fades into background
+		-with border looks silly because it segments the box
 
 
 Api Improvements: 
