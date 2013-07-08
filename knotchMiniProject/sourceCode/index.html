@@ -1,0 +1,305 @@
+<html> 
+<head> 
+	<link href="http://fnt.webink.com/wfs/webink.css/?project=29039664-B1EF-4215-8FF3-76BDE6923E92&fonts=880096C9-42EC-CFB6-C094-7540101C8F7B:f=Aller-BoldItalic,521D5111-7D3C-B8EC-88B6-BBED2BE5F224:f=Aller-LightItalic,32A3E230-3101-A662-F6D5-D8B9D0A38A5B:f=Aller-Regular,1B6C2E6C-BB21-53D3-2175-C814D91AD16C:f=Aller-Bold,C7662775-65E4-3DE5-DE19-D61377E1BE79:f=Aller-Light,9C5DF801-C745-E177-908F-369BCECD52B7:f=Aller-Italic" rel="stylesheet" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<style type="text/css">
+	h1 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif; 
+		font-weight: 300; 
+		font-size: 23; 
+		vertical-align: center; 
+	}
+	h2 {
+		padding: 0;
+		margin: 0;
+		font-family: Lato, sans-serif;
+		font-weight: 100; 
+		font-size: 19; 
+	}
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
+	#header {
+		width: 100%;
+	}
+	div.logo {
+		float: left;
+		width: 10%;
+		margin-left: 10px; 
+	}
+	div.name {
+		float: left;
+		width: 80%;
+		text-align: center;
+	}
+	div.clear-left {
+		width: 10%;
+		clear: left;
+	}
+	div.userInformation{
+		background-color: #f9f8f8; 
+
+	}
+	div.smallSpacer{
+		height:1.5em;
+	}
+	div.userInformation{
+		text-align: center; 
+	}
+	div.colorDispersionContainer{
+		background-color: #273137;
+		text-align: center; 
+		padding-top: 20px; 
+		padding-bottom: 20px;
+		height: 10px; 
+	}
+	div.testUserStats{
+		float: left;
+		width: 10%;
+		text-align: left;
+	}
+	div.userStatsContainer{
+		width: 100%;
+	}
+	div.userStatsSpacer{
+		float: left;
+		width: 30%;
+	}
+	span.userStats{
+		font-family: Lato, sans-serif;
+		font-weight: 300; 
+		font-size: 15; 
+	}
+	span.userStatsNumber{
+		font-family: Lato, sans-serif;
+		font-weight: 500;
+		font-size: 15;  
+		width: 0.5%;
+	}
+	div.pipeSpacing{
+		float: left;
+		width: 2%;
+		text-align: center;
+	}
+	div.knotchHeaderSpacer{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.knotchHeaderTitle{
+		float: left;
+		width: 25%;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
+	div.knotchHeaderArrow{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.usersOpinionBubble{
+		background-color: #2e5ca6; 
+		height: 200px;
+		width:  41%;
+		float: left;
+	}
+	div.usersOpinion{
+		margin-right:  50px;
+		margin-left:   50px;
+		margin-top:	   50px;
+		margin-bottom: 50px; 
+		vertical-align: center; 
+
+	}
+	div.usersOpinionSpacer{
+		width:  30%;
+		float: left;
+	}
+	div.knotchBoxSpacer{
+		width:	31%;
+		float:	left;
+	}
+	div.knotchBox{
+		width: 65%;
+		float:	left;
+	}
+	div.comment{
+		width: 65%;
+		float:	left;
+	}
+	span.userName{
+		margin-left: 10px;
+	}
+	a.userName{
+		color: #ff6d3a; 
+	}
+	input.newCommentBox {
+		border: 1px solid #f9f8f8; 
+		color: #ffffff; 
+		width: 200px; 
+	}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function doStuff()
+	{ 
+		$.ajax({
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/100"),
+		context: document.body
+	}).done(function(data) {
+		console.log(data);
+		var colorCode = {
+			"0":	["#2e5ca6"],	
+			"2":	["#586db9"],
+			"4":	["#008fd0"],	
+			"6":	["#57cccc"],	
+			"8":	["#ceebee"],	
+			"10":	["#ffffff"],	
+			"12":	["#ffeec3"],	
+			"14":	["#ffcc43"],	
+			"16":	["#ffa02d"],	
+			"18":	["#ff6d3a"],	
+			"20":	["#ee443a"]	
+			};
+		console.log(data);
+		$('#headerName').text(data.userInfo.name); 
+		$("#userName").text(data.userInfo.name); 
+		$("#userLocation").text(data.userInfo.location);
+		$("#TopicStatsNumber").text(data.userInfo.num_topics); 
+		$("#FollowersStatsNumber").text(data.userInfo.num_followers); 
+		$("#FollowingStatsNumber").text(data.userInfo.num_following); 
+		$("#GloryStatsNumber").text(data.userInfo.num_glory); 
+		var listOfImgTags = $('.userImage')
+		for(i=0;i<listOfImgTags.length;i++)
+			{ 
+				$(listOfImgTags[i]).attr("src", data.userInfo.profilePicUrl); 
+			}
+
+		if(data.knotches.length > 0){
+				for(var knotchCount=0;knotchCount < data.knotches.length;knotchCount++)
+				{	
+					$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
+					$(".usersOpinion").text(data.knotches[knotchCount].comment);
+					$(".usersOpinionBubble").css("background-color", colorCode[data.knotches[knotchCount].sentiment]); 
+					 var triangle = "knotchBoxes/triangle" + data.knotches[knotchCount].sentiment + ".png";
+					 $(".knotchTriangle").attr("src", triangle);
+					//Don't forget. What if it's a white bubble? 
+					if(data.knotches[knotchCount].replies.length > 0){
+						for(var replyCount=0;i < data.knotches[knotchCount].replies.length;i++)
+							{ 
+								console.log(data.knotches[knotchCount].replies[replyCount]);
+							}
+					}
+				}
+			}
+		//$("#KnotchesStatsNumber").text(data.userInfo.num_knotches); 	
+		//$("#FollowersStatsNumber").text(data.userInfo.profilePicUrl); 
+		//$("#").text(data.userInfo.);
+	});
+	}
+</script>
+</head> 
+
+<body> 
+	<div id="header" background="assets/nav-bar.png">
+		<div class="logo">
+			<img src="assets/knotch-logo.png" alt="knotchLogo" >
+		</div>
+		<div class="name">
+			<h1 id ="headerName">Aron Tzimas</h1>
+		</div>
+		<div class="clear-left"></div>
+	</div>
+	<div class="userInformation">
+		<div class="smallSpacer"></div>
+		<img class = "userImage" src="assets/userPicture.gif" alt="userPicture" width="100">
+		<h1 id ="userName">Aron Tzimas</h1>
+		<h2 id ="userLocation">San Francisco, California</h2>
+		<div class="smallSpacer"></div>
+		<!-- possibly use semantic list definition list with pipe in after property  -->
+		<div id="userStatsContainer">
+			<div class="userStatsSpacer">&nbsp;</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="TopicStatsNumber"> 		X </span>
+				<span class ="userStats" id="topicStats"> Topics</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="FollowersStatsNumber"> 	X </span>
+				<span class ="userStats" id="FollowersStats">	Followers</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="FollowingStatsNumber"> 	X </span>
+				<span class ="userStats" id="FollowingStats">Following</span>
+			</div>
+			<div class="pipeSpacing">|</div>
+			<div class="testUserStats">
+				<span class ="userStatsNumber" id="GloryStatsNumber"> 		X </span>
+				<span class ="userStats" id="GloryStats">Glory</span>
+			</div>
+		</div>
+		<div class="smallSpacer"></div>
+		<div class ="colorDispersionContainer">
+			<img src="assets/knotch-sentnements-bar.png" alt="colorDispersion">
+		</div>
+		<div class="smallSpacer"></div>
+	</div>
+	<!--Reusable Topic/Comment Markup-->
+	<div id="knotches">
+		<div class="knotches">
+			<div class="smallSpacer"></div>
+			<div class="knotchHeader">
+				<div class="knotchHeaderSpacer">&nbsp;</div>
+				<div class="knotchHeaderTitle">
+					Jurassic Park 3D
+				</div>
+				<div class="knotchHeaderArrow">
+					<img src = "assets\topic-arrow.png" alt="goToKnotch">
+				</div>
+			</div>
+			<div class="clear-left"></div>
+			<div class="smallSpacer"></div>
+			<div class="usersOpinionSpacer">&nbsp;</div>
+			<div class = "usersOpinionBubble">
+				<div class="usersOpinion">I like dis.</div>
+			</div>
+			<div class="clear-left"></div>
+			<div class="knotchBoxSpacer">&nbsp;</div>
+			<div class="knotchBox">
+				<img class ="knotchTriangle" src = "knotchBoxes\triangle0.png" alt="goToKnotch">
+			</div>
+			<div class="smallSpacer"></div>
+			<div class="usersOpinionSpacer">&nbsp;</div>
+			<div class="comment">
+				<img width="42px" class="userImage" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
+			</div>
+			<!-- Reusable comment Code -->
+			<div class="usersOpinionSpacer">&nbsp;</div>
+			<div class="comment">
+				<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span class ="UserName">I don't like dis.</span>
+			</div>
+			<div class="usersOpinionSpacer">&nbsp;</div>
+			<div class="comment">
+				<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span class ="UserName">I don't like dis.</span>
+			</div>
+			<!-- New Comment -->
+			<div class="usersOpinionSpacer">&nbsp;</div>
+			<div class="comment">
+				<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
+			</div>
+			<div class="clear-left"></div>
+			<div class="smallSpacer"></div>
+			<!--Reusable Topic/Comment Markup-->	
+		</div>
+	</body> 
+	</html>

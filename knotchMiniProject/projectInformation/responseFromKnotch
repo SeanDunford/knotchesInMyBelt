@@ -1,0 +1,199 @@
+  http://dev.knotch.it:8080/miniProject/user_feed/500e3b57bbcd08696800000a/1    
+
+{
+  "userInfo": {
+    "num_knotches": 2750,
+    "num_topics": 1835,
+    "num_followers": 13070,
+    "num_following": 14066,
+    "num_glory": 20723,
+    "location": "San Francisco, California",
+    "profilePicUrl": "https://graph.facebook.com/1572450228/picture?type=square&width=200&height=200",
+    "name": "Stephanie Volftsun"
+  },
+  "knotches": [
+    {
+      "category": {
+        "name": "Current Events",
+        "code": 4
+      },
+      "__v": 0,
+      "_id": "51cb400cd3a48fb64d000137",
+      "comment": "Same sex marriage is now legal in 13 states. 30% of Americans live in a state where gay couples can marry legally. 😊",
+      "sentiment": 20,
+      "timestamp": "2013-06-26T19:25:00.612Z",
+      "topic": "Gay marriage",
+      "user": "1572450228",
+      "userId": {
+        "_id": "500e3b57bbcd08696800000a",
+        "name": "Stephanie Volftsun",
+        "profilePicUrl": "https://graph.facebook.com/1572450228/picture?type=square&width=200&height=200"
+      },
+      "flagged": 0,
+      "flagSet": [],
+      "topicTags": [],
+      "userTags": [],
+      "likes": [
+        {
+          "_id": "51cb4098d69be33620000176",
+          "timestamp": "2013-06-26T19:27:20.043Z",
+          "user": "562793502",
+          "userId": {
+            "_id": "513c226cd821deac0f002785",
+            "name": "Aron Tzimas",
+            "profilePicUrl": "https://graph.facebook.com/562793502/picture?type=square&width=200&height=200"
+          }
+        },
+        {
+          "_id": "51cb6e118c6c54b44d0001ec",
+          "timestamp": "2013-06-26T22:41:21.859Z",
+          "user": "1077270057",
+          "userId": {
+            "_id": "506f9878eab668160f1598ef",
+            "name": "Tori Bryn Wycoff",
+            "profilePicUrl": "https://graph.facebook.com/1077270057/picture?type=square&width=200&height=200"
+          }
+        }
+      ],
+      "replies": []
+    }
+  ]
+
+
+
+
+
+
+  <!-- Primary Page Layout
+    ================================================== -->
+    <div class="wrapper">
+        <div class="inner block1">
+        </div>
+        <div class="inner block2">
+            <img class="screen" src="/landing/IPhone.png" />
+            <img class="mobile" src="/landing/mobile/IphoneBieber.png">
+            <div id="iphone-overlay" class="screen">
+                <img src="/landing/GleeTopic.PNG" class="active" alt="Knotch - Glee"/>
+                <img src="/landing/StarbucksTopic.png" alt="Knotch - Starbucks"/>
+                <img src="/landing/SanFranciscoTopic.png" alt="Knotch - San Francisco" />
+                <img src="/landing/JustinBieberTopic.png" alt="Knotch - Justin Bieber"/>
+            </div>
+        </div>
+        <div class="inner block3">
+            <span id="introducing">INTRODUCING</span><span id="the">the</span><span id="opinion-network">OPINION NETWORK<br>...</span>
+            <img class="screen" src="/landing/LongDiv.png" />
+            <img class="mobile" src="/landing/mobile/Div.png" style="margin: 0 auto;"/>
+            <br>
+            <img src = "/landing/Quote.png" class="screen"/>
+            <img src="/landing/mobile/Quote.png" class="mobile" />
+            <br>
+            <span id="that-lets-you">that lets you </span><span id="share">SHARE</span> <span id="your">YOUR</span> <span id="true">TRUE</span> <span id="colors">COLORS<br>...</span>
+        </div>
+        <div class="block4">
+            <div class="bar height20 color1"></div>
+            <div class="bar height20 color2"></div>
+            <div class="bar height20 color3"></div>
+            <div class="bar height20 color4"></div>
+            <div class="bar height150 color5"></div>
+            <div class="bar height40 color6"></div>
+            <div class="bar height40 color7"></div>
+            <div class="bar height40 color8"></div>
+            <div class="bar height40 color9"></div>
+            <div class="bar height40 color10"></div>
+
+        </div>
+        <div class="inner block5">
+            <br>
+            <img src="/landing/DivLast.png" style="margin-left: 17px;" class="screen"/>
+            <img src="/landing/mobile/Div.png" class="mobile" />
+            <br>
+            <img src="/landing/TempIcon.png" />
+            <br>
+            ONE DEGREE AT A TIME
+            <br><br>
+            <img src="/landing/HandIPhone.png" style="padding-bottom: 80px;" class="screen"/>
+            <img src="/landing/mobile/Hand.png" class="mobile"/>
+            <br>
+            <a href="https://itunes.apple.com/us/app/knotch/id579744181"class="get-free-app-button"></a><br><br><br>
+        </div>
+        <div class = "inner blockHiring">
+            <a name="jobs"></a>
+
+            <img src="/landing/LongDiv.png" style="margin-left: 17px;" class="screen"/>
+            <img src="/landing/mobile/Div.png" class="mobile" />
+            <br>
+            <img src="/landing/magnifying-glass.png" /><br>
+            YOU'RE THE ONE THAT WE WANT,<br>
+            YOU ARE THE ONE WE WANT,<br>
+            WOO-OO-OO, HONEY.<br>
+            <img src="/landing/div-small.png" /><br><br>
+
+            <div class="posting">
+                <div class="position">iOS Engineer</div>
+                <div class="description">Our brilliant co-Founder Steph single-handedly wrote the current Knotch iPhone app and we need someone to make it 10 times better, yesterday! :)
+                    <a class="learnMore" onclick="showJobPopup(1)"> PLEASE SIR, MORE.</a></div>
+            </div>
+            <div class="posting">
+                <div class="position">Web App Engineer</div>
+                <div class="description">Yes It's true ... drumroll, please… Knotch is coming to the InterWebs! Help us turn our dream into reality?
+                    <a class="learnMore" onclick="showJobPopup(2)"> TELL ME MORE.</a>
+                </div>
+            </div>
+            <div class="posting">
+                <div class="position">Full-Stack Engineer</div>
+                <div class="description">The color revolution is only beginning! We plan on bringing it to *bijillions* of people and it can't never be crashing, ever! Thats where you come in :)
+                    <a class="learnMore" onclick="showJobPopup(3)"> I WANT TO KNOW MORE.</a>
+                </div>
+            </div>
+            <div class="posting" style="visibility: hidden;">
+                <div class="position"></div>
+                <div class="description"></div>
+            </div>
+            <br><br><br>
+
+            <br><br><br><br><br><br><br><br>
+        </div>
+        <div class="inner block6">
+            <span id="copyright" class="screen">©2012 Knotch, Inc. All rights reserved. Knotch.it</span>
+            <a href="http://knotchworthy.tumblr.com/" target="_blank"> BLOG </a> 
+            <span class="divider"></span>
+            <a href="http://localhost:8080/about">ABOUT</a>
+            <span class="divider"></span>
+            <a href="http://knotch.it/landing/Knotch_PressKit.zip">PRESS KIT</a>
+        </div>
+    </div>
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="top-bar-wrapper screen">
+        <div class="wrapper">
+            <div class = "inner top-bar">
+                <a href="https://itunes.apple.com/us/app/knotch/id579744181" title="Available on the App Store" class="get-the-app clearfix" target="_blank"></a>
+                <a href="#jobs" class="hiringRibbon"></a>
+                <a href="http://facebook.com/knotchit" title="Connect with Knotch on Facebook." class="social facebook" target="_blank"></a>
+                 <a href="http://twitter.com/knotchit" title="Connect with Knotch on Twitter." class="social twitter" target="_blank"></a>
+                <a href="http://youtu.be/BN2XP-2yWQk" class="social play-button" rel="prettyPhoto[youtube]"></a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="wrapper">
+            <div class="inner">
+                <div class="scroll-arrow">
+                    <img src="/landing/BouncyArrow.png" alt />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popupContainer">
+        <div class="popupWindow">
+            <div class="popup-close" onclick="hidePopup()">X</div>
+            <div id="popup-position" class="position"></div>
+            <div id="popup-description" class="description"></div>
+            <div id="popup-bullets" class="bullets">
+            </div>
+            <div class="contact">ARE YOU THE ONE WE NEED, OH YES INDEED?<br>Tell us about yourself - jobs@knotch.it</div>
+        </div>
+    </div>
+</body>
