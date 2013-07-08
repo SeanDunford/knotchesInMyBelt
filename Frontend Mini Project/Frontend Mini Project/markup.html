@@ -146,8 +146,36 @@
 		color: #ffffff; 
 		width: 200px; 
 	}
-	</style>
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function doStuff()
+	{ $.ajax({
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3b57bbcd08696800000a/1"),
+		context: document.body
+	}).done(function(data) {
+		console.log(data);
+		$('#headerName').text(data.userInfo.name); 
+		$("#userName").text(data.userInfo.name); 
+		$("#userLocation").text(data.userInfo.location);
+		$("#TopicsStatsNumber").text(data.userInfo.num_topics); 
+		$("#FollowersStatsNumber").text(data.userInfo.num_followers); 
+		$("#FollowingStatsNumber").text(data.userInfo.num_following); 
+		$("#GloryStatsNumber").text(data.userInfo.num_glory); 
+		//$("#KnotchesStatsNumber").text(data.userInfo.num_knotches); 	
+		//$("#FollowersStatsNumber").text(data.userInfo.profilePicUrl); 
+		
+			num_following: 14066
+			num_glory: 20723
+			num_knotches: 2750
+			num_topics: 1835
+			profilePicUrl: "https://graph.facebook.com/1572450228/picture?type=square&width=200&height=200" 
+		//$("#").text(data.userInfo.);
+	});
+	}
+</script>
 </head> 
+
 <body> 
 	<div id="header" background="assets/nav-bar.png">
 		<div class="logo">
@@ -164,25 +192,26 @@
 		<h1 id ="userName">Aron Tzimas</h1>
 		<h2 id ="userLocation">San Francisco, California</h2>
 		<div class="smallSpacer"></div>
+		<!-- possibly use semantic list definition list with pipe in after property  -->
 		<div id="userStatsContainer">
 			<div class="userStatsSpacer">&nbsp;</div>
 			<div class="testUserStats">
-				<span class ="userStatsNumber" id="topicStats"> 		180 </span>
+				<span class ="userStatsNumber" id="topicStatsNumber"> 		X </span>
 				<span class ="userStats" id="topicStats"> Topics</span>
 			</div>
 			<div class="pipeSpacing">|</div>
 			<div class="testUserStats">
-				<span class ="userStatsNumber" id="FollowersStats"> 	5684 </span>
+				<span class ="userStatsNumber" id="FollowersStatsNumber"> 	X </span>
 				<span class ="userStats" id="FollowersStats">	Followers</span>
 			</div>
 			<div class="pipeSpacing">|</div>
 			<div class="testUserStats">
-				<span class ="userStatsNumber" id="FollowingStats"> 	1288 </span>
+				<span class ="userStatsNumber" id="FollowingStatsNumber"> 	X </span>
 				<span class ="userStats" id="FollowingStats">Following</span>
 			</div>
 			<div class="pipeSpacing">|</div>
 			<div class="testUserStats">
-				<span class ="userStatsNumber" id="GloryStats"> 		18,063 </span>
+				<span class ="userStatsNumber" id="GloryStatsNumber"> 		X </span>
 				<span class ="userStats" id="GloryStats">Glory</span>
 			</div>
 		</div>
@@ -237,6 +266,5 @@
 		<div class="clear-left"></div>
 		<div class="smallSpacer"></div>
 		<!--Reusable Topic/Comment Markup-->	
-		
 	</body> 
 	</html>
