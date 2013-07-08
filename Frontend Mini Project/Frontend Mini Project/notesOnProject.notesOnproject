@@ -5,16 +5,19 @@ Touch up UI
 	- Gradient wtf
 	- Fix Piped List
 	- Fix Comment Box
+	- margin the logo
+	- Fix some fonts
+	- square all middle elements up better 
+	- Hash the little triangle 
+	- White knotch on White Background
+
 Add javascript dynanicism
 	- Loop Though Knotches
 	- Loop Through Comments
 
 
-Add Gradient
-Fix some fonts
-margin the logo
 space out the user info more evenly
-square all middle elements up better
+
 
 
 
@@ -22,14 +25,19 @@ Assumptions:
 
 	You didn't want me to get the font sizes and margins exact. I obsessed over this too much and it's still not perfect. 
 	Sentement bar is supposed to be static for this example. I didn't see any indication in the data that it could be calculated. I would probably make a canvas/span or float colored divs. Use total knotches and values of each sentement to calculate percentages. 
-
+	This was not supposed to be for multiple screen resolutions/sizes lol
 
 
 Improvements:
 	Div, div, div, div, div, div, div, div....
 	Use more backend  to figure stuff out? 
 	Better, use something like angular backbone patterns? 
+	Better Javascript optimization 
+	Don't use the web fonts...Couldn't figure out how to use local stuff
+	Use Sass or something equivalent to make css better 
 
 
-
-Sentement vs Sentiment?
+Api Improvements: 
+	Sentement vs Sentiment?
+	Sample Data set should be better. Most things were knotches that were red with no comments. So more diversity
+	If you request with no count it gets back all. Not sure if this is by design. 
