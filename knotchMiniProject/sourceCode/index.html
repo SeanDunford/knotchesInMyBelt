@@ -137,7 +137,7 @@
 		float:	left;
 	}
 	div.comment{
-		width: 65%;
+		width: 43%;
 		float:	left;
 	}
 	div.knotchOwner{
@@ -161,7 +161,7 @@
 	function doStuff()
 	{ 
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/1000"),
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3b57bbcd08696800000a/10"),
 		context: document.body
 	}).done(function(data) {
 		console.log(data);
@@ -211,17 +211,17 @@
 				 $(".knotchTriangle").attr("src", triangle);
 				//Don't forget. What if it's a white bubble? 
 				if(data.knotches[knotchCount].replies.length > 0){
-					for(var replyCount=0;i < data.knotches[knotchCount].replies.length;i++)
+					for(var replyCount=0;replyCount < data.knotches[knotchCount].replies.length;replyCount++)
 						{ 
-							commentToAppend ="<div class=\\\"comment\\\"><img src="													+
-							"http://127.0.0.1:8080/?proxy="+encodeURIComponent(data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl)										+
-							"alt=\"commentorsAvatar\" height=\"30\" width=\"30\">&nbsp;&nbsp;<a class=\"userName\" href=\"url\">"	+
-							data.knotches[knotchCount].replies[replyCount].userId.name; 											+
-							"<\/a><span>"																							+
-							data.knotches[knotchCount].replies[replyCount].reply 													+
-							"<\/span><\/div>"; 
-							$(".knotchOwner").append(commentToAppend); 
-							console.log(data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl);
+							htmlToAppend = "<div class=\"usersOpinionSpacer\">&nbsp;<\/div>"						+
+									"<div class=\"comment\"><img src="																		+
+									"\"http://127.0.0.1:8080/?proxy="+data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl	+
+									"\" alt=\"commentorsAvatar\" height=\"30\" width=\"30\">&nbsp;&nbsp;<a class=\"userName\" href=\"url\">"+
+									data.knotches[knotchCount].replies[replyCount].userId.name 												+
+									"<\/a><span> \""																						+
+									data.knotches[knotchCount].replies[replyCount].reply 													+
+									"\"<\/span><\/div>"; 																					+
+									$(".commentsContainer").append(htmlToAppend); 																																		
 						}
 				}
 			}
@@ -280,7 +280,7 @@
 		<div class="smallSpacer"></div>
 	</div>
 	<!--Reusable Topic/Comment Markup-->
-	<div id="knotches">
+	<div class="knotchContainer">
 		<div class="knotches">
 			<div class="smallSpacer"></div>
 			<div class="knotchHeader">
@@ -309,14 +309,7 @@
 				<img width="42px" class="userImage" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
 			</div>
 			<!-- Reusable comment Code -->
-			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class="comment">
-				<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span>I don't like dis.</span>
-			</div>
-			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class="comment">
-				<img src="assets/userPicture.gif" alt="commentorsAvatar" height="30" width="30">&nbsp;&nbsp;<a class="userName" href="url">Aron Tzimas</a><span>I don't like dis.</span>
-			</div>
+			<div class = "commentsContainer"></div>
 			<!-- New Comment -->
 			<div class="usersOpinionSpacer">&nbsp;</div>
 			<div class="comment">

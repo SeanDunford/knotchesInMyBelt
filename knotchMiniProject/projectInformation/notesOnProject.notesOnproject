@@ -46,3 +46,20 @@ Api Improvements:
 	Sentement vs Sentiment?
 	Sample Data set should be better. Most things were knotches that were red with no comments. So more diversity
 	If you request with no count it gets back all. Not sure if this is by design. 
+
+
+
+
+Found some bad data on user comments of Steph's profile 
+	GET https://profile-b.xx.fbcdn.net/hprofile-frc1/c116.3.728.728/s200x200/1005074_10151952894932166_2085150197_n.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-a.xx.fbcdn.net/hprofile-frc3/c50.50.621.621/s200x200/997087_526255487436201_353657507_n.jpg 502 (OK) jquery.js:6590
+GET http://127.0.0.1:8080/?proxy=undefined 502 (Bad Gateway) jquery.js:6590
+GET https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/c66.66.828.828/s200x200/379747_475532159193029_1600375334_n.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-b.xx.fbcdn.net/hprofile-frc1/c166.31.388.388/s200x200/254088_217041111652535_4699142_n.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-a.xx.fbcdn.net/hprofile-frc3/c33.33.409.409/s200x200/306033_10151513302777299_1748011783_n.jpg 502 (OK) jquery.js:6590
+GET https://profile-b.xx.fbcdn.net/hprofile-frc3/c15.0.150.150/316509_312259108787278_233215422_a.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-b.xx.fbcdn.net/hprofile-frc1/c56.56.704.704/s200x200/944394_10151585294948901_1545691267_n.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-b.xx.fbcdn.net/hprofile-frc1/c51.50.619.619/s200x200/1005711_533341758405_295349922_n.jpg 502 (Bad Gateway) jquery.js:6590
+GET https://profile-a.xx.fbcdn.net/hprofile-frc3/c84.0.333.333/s200x200/154_7763322329_6707_n.jpg 502 (OK) jquery.js:6590
+GET https://profile-b.xx.fbcdn.net/hprofile-frc1/c34.34.432.432/s200x200/298065_10150396188808783_1624933963_n.jpg 502 (Bad Gateway) jquery.js:6590
+
