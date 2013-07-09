@@ -140,6 +140,10 @@
 		width: 65%;
 		float:	left;
 	}
+	div.knotchOwner{
+		width: 65%;
+		float:	left;
+	}
 	span.userName{
 		margin-left: 10px;
 	}
@@ -157,7 +161,7 @@
 	function doStuff()
 	{ 
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/3"),
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/1000"),
 		context: document.body
 	}).done(function(data) {
 		console.log(data);
@@ -174,7 +178,6 @@
 			"18":	["#ff6d3a"],	
 			"20":	["#ee443a"]	
 			};
-		console.log(data);
 		//$('#headerName').text(data.userInfo.name); 
 		//$("#userName").text(data.userInfo.name); 
 		$("#userLocation").text(data.userInfo.location);
@@ -188,34 +191,40 @@
 				$(listOfImgTags[i]).attr("src", data.userInfo.profilePicUrl);
 			}
 		var listOfNameTags = $('.userName')
-		console.log(listOfNameTags);
 		for(i=0;i<listOfNameTags.length;i++)
 			{ 
 				$(listOfNameTags[i]).text(data.userInfo.name)
-				console.log("I ran");
 			}
 
 		if(data.knotches.length > 0){
-				for(var knotchCount=0;knotchCount < data.knotches.length;knotchCount++)
-				{	
-					$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
-					$(".usersOpinion").text(data.knotches[knotchCount].comment);
-					$(".usersOpinionBubble").css("background-color", colorCode[data.knotches[knotchCount].sentiment]); 
-					
-					if(data.knotches[knotchCount].sentiment == "10"){
-						$(".usersOpinionBubble").css("border","1px solid #000000"); 
-						console.log("Working");
-					}
-					 var triangle = "knotchBoxes/triangle" + data.knotches[knotchCount].sentiment + ".png";
-					 $(".knotchTriangle").attr("src", triangle);
-					//Don't forget. What if it's a white bubble? 
-					if(data.knotches[knotchCount].replies.length > 0){
-						for(var replyCount=0;i < data.knotches[knotchCount].replies.length;i++)
-							{ 
-								console.log(data.knotches[knotchCount].replies[replyCount]);
-							}
-					}
+			var commentToAppend =""; 
+			for(var knotchCount=0;knotchCount < data.knotches.length;knotchCount++)
+			{	
+				$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
+				$(".usersOpinion").text(data.knotches[knotchCount].comment);
+				$(".usersOpinionBubble").css("background-color", colorCode[data.knotches[knotchCount].sentiment]); 
+				
+				if(data.knotches[knotchCount].sentiment == "10"){
+					$(".usersOpinionBubble").css("border","1px solid #000000"); 
 				}
+				 var triangle = "knotchBoxes/triangle" + data.knotches[knotchCount].sentiment + ".png";
+				 $(".knotchTriangle").attr("src", triangle);
+				//Don't forget. What if it's a white bubble? 
+				if(data.knotches[knotchCount].replies.length > 0){
+					for(var replyCount=0;i < data.knotches[knotchCount].replies.length;i++)
+						{ 
+							commentToAppend ="<div class=\\\"comment\\\"><img src="													+
+							"http://127.0.0.1:8080/?proxy="+encodeURIComponent(data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl)										+
+							"alt=\"commentorsAvatar\" height=\"30\" width=\"30\">&nbsp;&nbsp;<a class=\"userName\" href=\"url\">"	+
+							data.knotches[knotchCount].replies[replyCount].userId.name; 											+
+							"<\/a><span>"																							+
+							data.knotches[knotchCount].replies[replyCount].reply 													+
+							"<\/span><\/div>"; 
+							$(".knotchOwner").append(commentToAppend); 
+							console.log(data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl);
+						}
+				}
+			}
 			}
 		//$("#KnotchesStatsNumber").text(data.userInfo.num_knotches); 	
 		//$("#FollowersStatsNumber").text(data.userInfo.profilePicUrl); 
@@ -296,7 +305,7 @@
 			</div>
 			<div class="smallSpacer"></div>
 			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class="comment">
+			<div class="knotchOwner">
 				<img width="42px" class="userImage" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
 			</div>
 			<!-- Reusable comment Code -->
