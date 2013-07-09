@@ -151,9 +151,19 @@
 		color: #ff6d3a; 
 	}
 	input.newCommentBox {
-		border: 1px solid #f9f8f8; 
-		color: #ffffff; 
-		width: 200px; 
+		border: 3px solid #e2e2e2; 
+		color: #e2e2e2; 
+		width: 90%;
+		margin-top: 10px; 
+		margin-bottom: 10px;  
+		margin-right: 20px; 
+		padding-top: 10px; 
+		padding-bottom: 10px;  
+		padding-left: 20px; 
+		padding-right: 20px; 
+	}
+	div.knotchContainer {
+
 	}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -197,7 +207,7 @@
 			}
 
 		if(data.knotches.length > 0){
-			var commentToAppend =""; 
+			var commentToAppend, knotchToAppend =""; 
 			for(var knotchCount=0;knotchCount < data.knotches.length;knotchCount++)
 			{	
 				$(".knotchHeaderTitle").text(data.knotches[knotchCount].topic); 
@@ -213,7 +223,7 @@
 				if(data.knotches[knotchCount].replies.length > 0){
 					for(var replyCount=0;replyCount < data.knotches[knotchCount].replies.length;replyCount++)
 						{ 
-							htmlToAppend = "<div class=\"usersOpinionSpacer\">&nbsp;<\/div>"						+
+							commentToAppend = "<div class=\"usersOpinionSpacer\">&nbsp;<\/div>"						+
 									"<div class=\"comment\"><img src="																		+
 									"\"http://127.0.0.1:8080/?proxy="+data.knotches[knotchCount].replies[replyCount].userId.profilePicUrl	+
 									"\" alt=\"commentorsAvatar\" height=\"30\" width=\"30\">&nbsp;&nbsp;<a class=\"userName\" href=\"url\">"+
@@ -229,6 +239,27 @@
 		//$("#KnotchesStatsNumber").text(data.userInfo.num_knotches); 	
 		//$("#FollowersStatsNumber").text(data.userInfo.profilePicUrl); 
 		//$("#").text(data.userInfo.);
+	});
+	}
+	function otherStuff(){
+		$.ajax({
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3b57bbcd08696800000a/10"),
+		context: document.body
+	}).done(function(data){
+		var knotches = data.knotches; 
+		console.log(knotches);
+		if(knotches.length > 0){
+			var knotchContainer = $(".knotchContainer");
+			for(var knotchCounter = 0; knotchCounter < knotches.length; knotchCounter++){
+				//knotches[knotchCounter].topic
+				knotchContainer.append("<div class=\"knotches\"><div class=\"smallSpacer\"><\/div><div class=\"knotchHeader\"><div class=\"knotchHeaderSpacer\">&nbsp;<\/div><div class=\"knotchHeaderTitle\">"+knotches[knotchCounter].topic+"<\/div>");
+				knotchContainer.append("<div class=\"knotchHeaderArrow\"><a href=\"url\"><img src = \"assets\\topic-arrow.png\" alt=\"goToTopic\"><\/a><\/div><\/div><div class=\"clear-left\"><\/div><div class=\"smallSpacer\"><\/div>")
+				knotchContainer.append("<div class=\"usersOpinionSpacer\">&nbsp;<\/div><div class = \"usersOpinionBubble\"><div class=\"usersOpinion\">"+knotches[knotchCounter].comment+"<\/div><\/div><div class=\"clear-left\"><\/div>")
+				knotchContainer.append("<div class=\"knotchBoxSpacer\">&nbsp;<\/div><div class=\"knotchBox\"><img class =\"knotchTriangle\" src = \"knotchBoxes\\triangle0.png\" alt=\"goToKnotch\"><\/div>");
+				knotchContainer.append("<div class=\"smallSpacer\"><\/div><div class=\"usersOpinionSpacer\">&nbsp;<\/div><div class=\"knotchOwner\"><img width=\"42px\" class=\"userImage\" src=\"assets\/userPicture.gif\"><span class =\"UserName\">Aron Tzimas<\/span><\/div><div class=\"smallSpacer\"><\/div>");
+				knotchContainer.append("");
+			}
+		}
 	});
 	}
 </script>
@@ -281,43 +312,43 @@
 	</div>
 	<!--Reusable Topic/Comment Markup-->
 	<div class="knotchContainer">
-		<div class="knotches">
-			<div class="smallSpacer"></div>
-			<div class="knotchHeader">
-				<div class="knotchHeaderSpacer">&nbsp;</div>
-				<div class="knotchHeaderTitle">
-					Jurassic Park 3D
+			<div class="knotches">
+				<div class="smallSpacer"></div>
+				<div class="knotchHeader">
+					<div class="knotchHeaderSpacer">&nbsp;</div>
+					<div class="knotchHeaderTitle">
+						Jurassic Park 3D
+					</div>
+					<div class="knotchHeaderArrow">
+						<a href="url"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
+					</div>
 				</div>
-				<div class="knotchHeaderArrow">
-					<a href="url"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
+				<div class="clear-left"></div>
+				<div class="smallSpacer"></div>
+				<div class="usersOpinionSpacer">&nbsp;</div>
+				<div class = "usersOpinionBubble">
+					<div class="usersOpinion">I like dis.</div>
 				</div>
+				<div class="clear-left"></div>
+				<div class="knotchBoxSpacer">&nbsp;</div>
+				<div class="knotchBox">
+					<img class ="knotchTriangle" src = "knotchBoxes\triangle0.png" alt="goToKnotch">
+				</div>
+				<div class="smallSpacer"></div>
+				<div class="usersOpinionSpacer">&nbsp;</div>
+				<div class="knotchOwner">
+					<img width="42px" class="userImage" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
+				</div>
+				<!-- Reusable comment Code -->
+				<div class = "commentsContainer"></div>
+				<!-- New Comment -->
+				<div class="usersOpinionSpacer">&nbsp;</div>
+				<div class="comment">
+					<input type="text"  class ="newCommentBox" value="Comment on this knotch...">
+				</div>
+				<div class="clear-left"></div>
+				<div class="smallSpacer"></div>
+				<!--Reusable Topic/Comment Markup-->	
 			</div>
-			<div class="clear-left"></div>
-			<div class="smallSpacer"></div>
-			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class = "usersOpinionBubble">
-				<div class="usersOpinion">I like dis.</div>
-			</div>
-			<div class="clear-left"></div>
-			<div class="knotchBoxSpacer">&nbsp;</div>
-			<div class="knotchBox">
-				<img class ="knotchTriangle" src = "knotchBoxes\triangle0.png" alt="goToKnotch">
-			</div>
-			<div class="smallSpacer"></div>
-			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class="knotchOwner">
-				<img width="42px" class="userImage" src="assets/userPicture.gif"><span class ="UserName">Aron Tzimas</span>
-			</div>
-			<!-- Reusable comment Code -->
-			<div class = "commentsContainer"></div>
-			<!-- New Comment -->
-			<div class="usersOpinionSpacer">&nbsp;</div>
-			<div class="comment">
-				<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
-			</div>
-			<div class="clear-left"></div>
-			<div class="smallSpacer"></div>
-			<!--Reusable Topic/Comment Markup-->	
-		</div>
 	</body> 
 	</html>

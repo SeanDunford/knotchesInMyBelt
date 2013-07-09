@@ -22,8 +22,8 @@ space out the user info more evenly
 
 
 Assumptions:
-
-	You didn't want me to get the font sizes and margins exact. I obsessed over this too much and it's still not perfect. 
+	Sample arrow black provided arrow gray. 
+	You didn't want me to get the font sizes and margins exact. I obsessed over this too much and it's still not perfect.
 	Sentement bar is supposed to be static for this example. I didn't see any indication in the data that it could be calculated. I would probably make a canvas/span or float colored divs. Use total knotches and values of each sentement to calculate percentages. 
 	This was not supposed to be for multiple screen resolutions/sizes lol
 	- Gradient //I just shooped it from the .psd I couldn't figure out the particular styling for it
