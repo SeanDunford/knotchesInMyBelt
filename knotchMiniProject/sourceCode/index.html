@@ -252,11 +252,12 @@
 			var knotchContainer = $(".knotchContainer");
 			for(var knotchCounter = 0; knotchCounter < knotches.length; knotchCounter++){
 				//knotches[knotchCounter].topic
-				knotchContainer.append("<div class=\"knotches\"><div class=\"smallSpacer\"><\/div><div class=\"knotchHeader\"><div class=\"knotchHeaderSpacer\">&nbsp;<\/div><div class=\"knotchHeaderTitle\">"+knotches[knotchCounter].topic+"<\/div>");
-				knotchContainer.append("<div class=\"knotchHeaderArrow\"><a href=\"url\"><img src = \"assets\\topic-arrow.png\" alt=\"goToTopic\"><\/a><\/div><\/div><div class=\"clear-left\"><\/div><div class=\"smallSpacer\"><\/div>")
+				knotchContainer.append("<div class=\"knotches\"><\/div><div class=\"knotchHeader\"><div class=\"knotchHeaderSpacer\">&nbsp;<\/div><div class=\"knotchHeaderTitle\">"+knotches[knotchCounter].topic+"<\/div>");
+				knotchContainer.append("<div class=\"knotchHeaderArrow\"><a href=\"url\"><img src = \"assets\\topic-arrow.png\" alt=\"goToTopic\"><\/a><\/div><\/div>")
 				knotchContainer.append("<div class=\"usersOpinionSpacer\">&nbsp;<\/div><div class = \"usersOpinionBubble\"><div class=\"usersOpinion\">"+knotches[knotchCounter].comment+"<\/div><\/div><div class=\"clear-left\"><\/div>")
 				knotchContainer.append("<div class=\"knotchBoxSpacer\">&nbsp;<\/div><div class=\"knotchBox\"><img class =\"knotchTriangle\" src = \"knotchBoxes\\triangle0.png\" alt=\"goToKnotch\"><\/div>");
 				knotchContainer.append("<div class=\"smallSpacer\"><\/div><div class=\"usersOpinionSpacer\">&nbsp;<\/div><div class=\"knotchOwner\"><img width=\"42px\" class=\"userImage\" src=\"assets\/userPicture.gif\"><span class =\"UserName\">Aron Tzimas<\/span><\/div><div class=\"smallSpacer\"><\/div>");
+				knotchContainer.append("<div class=\"usersOpinionSpacer\">&nbsp;<\/div><div class=\"comment\"><input type=\"text\"  class =\"newCommentBox\" value=\"Comment on this knotch...\"><\/div><div class=\"clear-left\"><\/div><div class=\"smallSpacer\"><\/div>");
 				knotchContainer.append("");
 			}
 		}
