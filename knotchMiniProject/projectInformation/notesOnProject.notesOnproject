@@ -1,24 +1,17 @@
-
-
-
 Touch up UI
 	- Fix Piped List
-	- Fix Comment Box
-	- margin the logo
+	- CommentBox slightly darker
 	- Fix some fonts
 	- square all middle elements up better 
-	- Hash the little triangle 
 	- Fix color of User Links
+	- Add @Links
 
 Add javascript dynanicism
-	- Loop Though Knotches
-	- Loop Through Comments
+	- Combine grabbing the comments with grabbing of knotches {working seperately just not together}
+	- Generate html for triangle and knotchBox {colorPick works with hashing make it more dynamic}
 	- Possibly Each Knotch should contain a link back to itself 
 
-
 space out the user info more evenly
-
-
 
 
 Assumptions:
@@ -33,11 +26,11 @@ Improvements:
 	Use real git pattern like git flow
 	Div, div, div, div, div, div, div, div....
 	Use more backend  to figure stuff out? 
-	Better, use something like angular backbone patterns? 
 	Better Javascript optimization 
 	Don't use the web fonts...Couldn't figure out how to use local stuff
 	Use Sass or something equivalent to make css better 
 	White knotch on White Background
+	Change from Colored div blocks to images? That doesn't seem right though
 		-No border looks silly becasue box has border and it fades into background
 		-with border looks silly because it segments the box
 
@@ -45,9 +38,8 @@ Improvements:
 Api Improvements: 
 	Sentement vs Sentiment?
 	Sample Data set should be better. Most things were knotches that were red with no comments. So more diversity
+		{obviously not a top priority but just saying}
 	If you request with no count it gets back all. Not sure if this is by design. 
-
-
 
 
 Found some bad data on user comments of Steph's profile 

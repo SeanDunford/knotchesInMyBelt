@@ -118,7 +118,9 @@
 		margin-left:   50px;
 		margin-top:	   50px;
 		margin-bottom: 50px; 
-		vertical-align: center; 
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 15; 
 
 	}
 	div.usersOpinionSpacer{
@@ -140,6 +142,12 @@
 	div.knotchOwner{
 		width: 65%;
 		float:	left;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 17;
 	}
 	span.userName{
 		margin-left: 10px;
@@ -148,8 +156,8 @@
 		color: #ff6d3a; 
 	}
 	input.newCommentBox {
-		border: 3px solid #e2e2e2; 
-		color: #e2e2e2; 
+		border: 3px solid #b3b3b3; 
+		color: #b3b3b3; 
 		width: 90%;
 		margin-top: 10px; 
 		margin-bottom: 10px;  
