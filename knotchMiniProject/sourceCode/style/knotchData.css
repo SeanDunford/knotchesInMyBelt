@@ -1,0 +1,164 @@
+
+	h1 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif; 
+		font-weight: 300; 
+		font-size: 23; 
+		vertical-align: center; 
+	}
+	h2 {
+		padding: 0;
+		margin: 0;
+		font-family: Lato, sans-serif;
+		font-weight: 100; 
+		font-size: 19; 
+	}
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
+	#header {
+		width: 100%;
+	}
+	div.logo {
+		float: left;
+		width: 10%;
+
+	}
+	#knotchLogo{
+		margin-left: 10px;
+		margin-bottom: 5px;
+	}
+	div.name {
+		float: left;
+		width: 80%;
+		text-align: center;
+	}
+	div.clear-left {
+		width: 10%;
+		clear: left;
+	}
+	div.userInformation{
+		background-color: #f9f8f8; 
+
+	}
+	div.smallSpacer{
+		height:1.5em;
+	}
+	div.userInformation{
+		text-align: center; 
+	}
+	div.colorDispersionContainer{
+		background-color: #273137;
+		text-align: center; 
+		padding-top: 20px; 
+		padding-bottom: 20px;
+		height: 10px; 
+	}
+	div.testUserStats{
+		float: left;
+		width: 10%;
+		text-align: left;
+	}
+	div.userStatsContainer{
+		width: 100%;
+	}
+	div.userStatsSpacer{
+		float: left;
+		width: 30%;
+	}
+	span.userStats{
+		font-family: Lato, sans-serif;
+		font-weight: 300; 
+		font-size: 15; 
+	}
+	span.userStatsNumber{
+		font-family: Lato, sans-serif;
+		font-weight: 500;
+		font-size: 15;  
+		width: 0.5%;
+	}
+	div.pipeSpacing{
+		float: left;
+		width: 2%;
+		text-align: center;
+	}
+	div.knotchHeaderSpacer{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.knotchHeaderTitle{
+		float: left;
+		width: 25%;
+		text-align: left;
+		padding: 0;
+		margin: 0;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 19;
+	}
+	div.knotchHeaderArrow{
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	div.usersOpinionBubble{
+		background-color: #2e5ca6; 
+		height: 200px;
+		width:  41%;
+		float: left;
+	}
+	div.usersOpinion{
+		margin-right:  50px;
+		margin-left:   50px;
+		margin-top:	   50px;
+		margin-bottom: 50px; 
+		vertical-align: center; 
+
+	}
+	div.usersOpinionSpacer{
+		width:  30%;
+		float: left;
+	}
+	div.knotchBoxSpacer{
+		width:	31%;
+		float:	left;
+	}
+	div.knotchBox{
+		width: 65%;
+		float:	left;
+	}
+	div.comment{
+		width: 43%;
+		float:	left;
+	}
+	div.knotchOwner{
+		width: 65%;
+		float:	left;
+	}
+	span.userName{
+		margin-left: 10px;
+	}
+	a.userName{
+		color: #ff6d3a; 
+	}
+	input.newCommentBox {
+		border: 3px solid #e2e2e2; 
+		color: #e2e2e2; 
+		width: 90%;
+		margin-top: 10px; 
+		margin-bottom: 10px;  
+		margin-right: 20px; 
+		padding-top: 10px; 
+		padding-bottom: 10px;  
+		padding-left: 20px; 
+		padding-right: 20px; 
+	}
+	div.knotchContainer {
+
+	}
