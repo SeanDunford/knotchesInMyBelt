@@ -23,8 +23,15 @@ function processTweetLinks(text, style) {//jacked and modified from stack Brover
     return text;
 }
 function getKnotchUserFeed(user, count){
+		var knotchUrl;
+		if(window.isProxyOn){
+			knotchUrl = "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/"+user+"/"+count);
+		}
+		else {
+			knotchUrl = encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/"+user+"/"+count);
+		}
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/"+user+"/"+count),
+		url: knotchUrl,
 		context: document.body
 	}).done(function(data){
 		console.log(data); 
@@ -125,7 +132,10 @@ function handleBarTesting(){
 	return html; 
 }
 function generateKnotchComment(pictureUrl, name, reply){
-	pictureUrl = "http://127.0.0.1:8080/?proxy="+ pictureUrl; 
+	if(window.turnProxyOn){
+		pictureUrl = "http://127.0.0.1:8080/?proxy="+ pictureUrl; 
+	}
+
 	var source   = $("#knotchComment").html();
 	var template = Handlebars.compile(source);
 	var context = {commentorsPicture: pictureUrl, commentorsName:name , commentorsReply: reply};
