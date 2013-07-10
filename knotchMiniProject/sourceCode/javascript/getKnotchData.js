@@ -4,9 +4,18 @@ function submitComment(callingEvent){
         return false;
     }
 }
+function processTweetLinks(text) {
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
+    text = text.replace(exp, "<a href='$1' target='_blank'>$1</a>");
+    exp = /(^|\s)#(\w+)/g;
+    text = text.replace(exp, "$1<a class='mention' href='http://search.knotch.it/search?q=%23$2' target='_blank'>#$2</a>");
+    exp = /(^|\s)@(\w+)/g;
+    text = text.replace(exp, "$1<a class='mention' href='http://www.knotch.it/$2' target='_blank'>@$2</a>");
+    return text;
+}
 function otherStuff(){
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/10"),
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10"),
 		context: document.body
 	}).done(function(data){
 		console.log(data); 
@@ -31,22 +40,30 @@ function otherStuff(){
 			for(var knotchCounter = 0; knotchCounter < knotches.length; knotchCounter++){
 				var thisKnotch = $("<div>"); 
 				thisKnotch.attr("class", "knotchNumber"+knotchCounter);
-				var reply = data.knotches[knotchCounter].replies;
+				var replies = data.knotches[knotchCounter].replies;
 				var knotchComments; 
+				var borderStyle = ""; 
 				var sentimentColor = getSentimentColor(knotches[knotchCounter].sentiment);
+					if (knotches[knotchCounter].sentiment === 10){
+						borderStyle = "1px solid #000000"; 
+					}
+				var comment = knotches[knotchCounter].comment; 
 				thisKnotch.append(
 				generateKnotch(knotches[knotchCounter].topic, 
 							   knotches[knotchCounter].comment, 
 							   knotches[knotchCounter].userId.profilePicUrl, 
 							   knotches[knotchCounter].userId.name,
 							   sentimentColor,
-							   knotches[knotchCounter].sentiment)); 
-				if(reply.length > 0){
-					for (var replyCounter =0; replyCounter < reply.length; replyCounter++){
-						
-						thisKnotch.append(knotchComments = generateKnotchComment(reply[replyCounter].userId.profilePicUrl,
-																   reply[replyCounter].userId.name,
-																   reply[replyCounter].reply));
+							   knotches[knotchCounter].sentiment,
+							   borderStyle,
+							   knotches[knotchCounter]._id)); 
+				if(replies.length > 0){
+					for (var replyCounter =0; replyCounter < replies.length; replyCounter++){
+						var reply = processTweetLinks(replies[replyCounter].reply);
+						thisKnotch.append(knotchComments = generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
+						   replies[replyCounter].userId.name,
+						   reply));
+
 					}
 				var commentBoxId = 0;
 }				thisKnotch.append(generateNewCommentBox(data.knotches[knotchCounter]._id));
@@ -77,7 +94,7 @@ function getSentimentColor(sentiment)
 	"20":	["#ee443a"]	
 };		
 	//Don't forget. What if it's a white bubble?
-	return ("background-color: "+colorCode[sentiment]);
+	return (colorCode[sentiment]);
 }
 
 function postAjax(){
@@ -106,10 +123,17 @@ function generateKnotchComment(pictureUrl, name, reply){
 	var html    = template(context);
 	return html; 
 }
-function generateKnotch(title, opinion, pictureUrl, name, sentimentColor, sentiment){
+function generateKnotch(title, opinion, pictureUrl, name, sentimentColor, sentiment, borderStyle, knotchID){
 	var source   = $("#knotch").html();
 	var template = Handlebars.compile(source);
-	var context = {knotchTitle:title, knotchersOpinion:opinion, knotchersPicture:pictureUrl, knotchersName:name, insertableStuff:sentimentColor, triangleCode:sentiment };
+	var context = {knotchTitle:title, 
+				   knotchersOpinion:opinion, 
+				   knotchersPicture:pictureUrl, 
+				   knotchersName:name, 
+				   color:sentimentColor, 
+				   triangleCode:sentiment, 
+				   border:borderStyle, 
+				   topicID:knotchID};
 	var html    = template(context);
 	return html; 
 }

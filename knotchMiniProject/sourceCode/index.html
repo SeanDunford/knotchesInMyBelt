@@ -21,21 +21,21 @@
 	<div class="comment">
 		<img src="{{commentorsPicture}}" alt="commentorsAvatar" class="replyAvatar" height="30" width="30">
 		<div class = "reply">
-			<a class="userName" href="url"> {{commentorsName}}</a>
-			<span class="reply"> &nbsp;"{{commentorsReply}}"</span>
+			<a class="mention" href="http://www.knotch.it/{{commentorsName}}"> {{commentorsName}}</a>
+			<span class="reply"> &nbsp;"{{{commentorsReply}}}"</span>
 		</div>
 	</div></script>
 <script id="knotch" type="text/x-handlebars-template">
 	<div class="smallSpacer"></div>
 	<div class="knotchHeader">
 		<div class="knotchHeaderSpacer">&nbsp;</div>
-		<div class="knotchHeaderTitle">{{knotchTitle}}</div>
+		<div class="knotchHeaderTitle"><a class ="knotchTitle" href="http://www.knotch.it/topic/knotchTitle">{{knotchTitle}}</div>
 		<div class="knotchHeaderArrow">
-			<a href="url"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
+			<a href="http://www.knotch.it/topic/{{topicID}}"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
 		</div>
 	<div class="clear-left"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
-	<div class = "usersOpinionBubble" style = "{{insertableStuff}}" >
+	<div class = "usersOpinionBubble" style = "background-color: {{color}}; border:{{border}};" >
 		<div class="usersOpinion">{{knotchersOpinion}}</div>
 	</div>
 	<div class="clear-left"></div>
