@@ -1,21 +1,30 @@
-function submitComment(callingEvent){
+function submitComment(callingEvent){ //can't get this to post the ajax
 		console.log(callingEvent); 
 	   if (callingEvent.keyCode == 13) {
         return false;
     }
 }
-function processTweetLinks(text) {
+function processTweetLinks(text, style) {//jacked and modified from stack Broverflow
     var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
     text = text.replace(exp, "<a href='$1' target='_blank'>$1</a>");
     exp = /(^|\s)#(\w+)/g;
+    if(style)
+    {
+    text = text.replace(exp, "$1<a class='opinionMention' href='http://search.knotch.it/search?q=%23$2' target='_blank'>#$2</a>");
+    exp = /(^|\s)@(\w+)/g;
+    text = text.replace(exp, "$1<a class='opinionMention' href='http://www.knotch.it/$2' target='_blank'>@$2</a>");
+       }
+    else{
     text = text.replace(exp, "$1<a class='mention' href='http://search.knotch.it/search?q=%23$2' target='_blank'>#$2</a>");
     exp = /(^|\s)@(\w+)/g;
     text = text.replace(exp, "$1<a class='mention' href='http://www.knotch.it/$2' target='_blank'>@$2</a>");
+      
+    }
     return text;
 }
-function otherStuff(){
+function getKnotchUserFeed(user, count){
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10"),
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/"+user+"/"+count),
 		context: document.body
 	}).done(function(data){
 		console.log(data); 
@@ -47,10 +56,10 @@ function otherStuff(){
 					if (knotches[knotchCounter].sentiment === 10){
 						borderStyle = "1px solid #000000"; 
 					}
-				var comment = knotches[knotchCounter].comment; 
+				var comment = processTweetLinks(knotches[knotchCounter].comment, 1); 
 				thisKnotch.append(
 				generateKnotch(knotches[knotchCounter].topic, 
-							   knotches[knotchCounter].comment, 
+							   comment, 
 							   knotches[knotchCounter].userId.profilePicUrl, 
 							   knotches[knotchCounter].userId.name,
 							   sentimentColor,
