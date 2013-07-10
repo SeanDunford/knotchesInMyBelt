@@ -24,41 +24,40 @@
 		<span> {{commentorsReply}}</span>
 	</div></script>
 <script id="knotch" type="text/x-handlebars-template">
-	<div class="knotchContainer">
-			<div class="knotches">
-				<div class="smallSpacer"></div>
-				<div class="knotchHeader">
-					<div class="knotchHeaderSpacer">&nbsp;</div>
-					<div class="knotchHeaderTitle">{{knotchTitle}}</div>
-					<div class="knotchHeaderArrow">
-						<a href="url"><img src = "assets\\topic-arrow.png" alt="goToTopic"></a>
-					</div>
-				</div>
-				<div class="clear-left"></div>
-				<div class="smallSpacer"></div>
-				<div class="usersOpinionSpacer">&nbsp;</div>
-				<div class = "usersOpinionBubble" >
-					<div class="usersOpinion">{{knotchersOpinion}}</div>
-				</div>
-				<div class="clear-left"></div>
-				<div class="knotchBoxSpacer">&nbsp;</div>
-				<div class="knotchBox">
-					<img class ="knotchTriangle" src = "knotchBoxes\\triangle0.png" alt="goToKnotch">
-				</div>
-				<div class="smallSpacer"></div>
-				<div class="usersOpinionSpacer">&nbsp;</div>
-				<div class="knotchOwner">
-					<img width="42px" class="userImage" src="{{knotchersPicture}}"><span class ="UserName">{{knotchersName}}</span>
-				</div>
-				<!-- Reusable comment Code -->
-				<div class = "commentsContainer"></div>
-				<!-- New Comment -->
-				<div class="usersOpinionSpacer">&nbsp;</div>
-				<div class="comment">
-					<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
-				</div>
-				<div class="clear-left"></div>
-				<div class="smallSpacer"></div></script>
+	<div class="smallSpacer"></div>
+	<div class="knotchHeader">
+		<div class="knotchHeaderSpacer">&nbsp;</div>
+		<div class="knotchHeaderTitle">{{knotchTitle}}</div>
+		<div class="knotchHeaderArrow">
+			<a href="url"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
+		</div>
+	<div class="clear-left"></div>
+	<div class="smallSpacer"></div>
+	<div class="usersOpinionSpacer">&nbsp;</div>
+	<div class = "usersOpinionBubble" style = "{{insertableStuff}}" >
+		<div class="usersOpinion">{{knotchersOpinion}}</div>
+	</div>
+	<div class="clear-left"></div>
+	<div class="knotchBoxSpacer">&nbsp;</div>
+	<div class="knotchBox">
+		<img class ="knotchTriangle" src = "knotchBoxes\triangle{{triangleCode}}.png" alt="goToKnotch">
+	</div>
+	<div class="smallSpacer"></div>
+	<div class="usersOpinionSpacer">&nbsp;</div>
+	<div class="knotchOwner">
+		<img width="42px" class="userImage" src="{{knotchersPicture}}"><span class ="UserName">{{knotchersName}}</span>
+	</div>
+	<!-- Reusable comment Code -->
+	<div class = "commentsContainer"></div>
+</script>
+<script id="newCommentBox" type="text/x-handlebars-template">
+	<div class="usersOpinionSpacer">&nbsp;</div>
+	<div class="comment">
+		<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
+	</div>
+	<div class="clear-left"></div>
+	<div class="smallSpacer"></div>
+</script>
 </head> 
 <body> 
 	<div id="header" background="assets/nav-bar.png">
