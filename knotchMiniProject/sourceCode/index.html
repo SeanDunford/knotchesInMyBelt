@@ -19,7 +19,7 @@
 <script id="knotchComment" type="text/x-handlebars-template">
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="comment">
-		<img src="{{commentorsPicture}}" alt="commentorsAvatar" class="replyAvatar" height="30" width="30">
+		<a href = "http://www.knotch.it/{{commentorsName}}" class="mention" ><img src="{{commentorsPicture}}" alt="commentorsAvatar" class="replyAvatar" height="30" width="30"></a>
 		<div class = "reply">
 			<a class="mention" href="http://www.knotch.it/{{commentorsName}}"> {{commentorsName}}</a>
 			<span class="reply"> &nbsp;"{{{commentorsReply}}}"</span>
@@ -46,7 +46,7 @@
 	<div class="smallSpacer"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="knotchOwner">
-		<img width="60px" class="userImage" src="{{knotchersPicture}}"><span class ="UserName">{{knotchersName}}</span>
+		<a href="http://www.knotch.it/{{knotchersName}}"><img width="60px" class="userImage" src="{{knotchersPicture}}"></a><a href="http://www.knotch.it/{{knotchersName}}"><span class ="UserName">{{knotchersName}}</span></a>
 	</div>
 	<!-- Reusable comment Code -->
 	<div class = "commentsContainer"></div>
