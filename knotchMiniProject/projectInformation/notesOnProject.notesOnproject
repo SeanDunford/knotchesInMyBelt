@@ -1,21 +1,8 @@
 Touch up UI
 	- Fix Piped List
-	- CommentBox slightly darker
-	- Fix some fonts
 	- square all middle elements up better 
-	- Fix color of User Links
-	- Add @Links
-
-Add javascript dynanicism
-	- Combine grabbing the comments with grabbing of knotches {working seperately just not together}
-	- Generate html for triangle and knotchBox {colorPick works with hashing make it more dynamic}
-	- Possibly Each Knotch should contain a link back to itself 
-
-space out the user info more evenly
-
 
 Assumptions:
-	Sample arrow black provided arrow gray. 
 	You didn't want me to get the font sizes and margins exact. I obsessed over this too much and it's still not perfect.
 	Sentement bar is supposed to be static for this example. I didn't see any indication in the data that it could be calculated. I would probably make a canvas/span or float colored divs. Use total knotches and values of each sentement to calculate percentages. 
 	This was not supposed to be for multiple screen resolutions/sizes lol
@@ -38,7 +25,7 @@ Improvements:
 
 Api Improvements: 
 	Sentement vs Sentiment?
-	Sample Data set should be better. Most things were knotches that were red with no comments. So more diversity
+	Sample Data set should be formalized. Most things were knotches that were red with no comments. So more diversity
 		{obviously not a top priority but just saying}
 	If you request with no count it gets back all. Not sure if this is by design. 
 
