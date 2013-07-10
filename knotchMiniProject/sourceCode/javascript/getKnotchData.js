@@ -6,7 +6,7 @@ function submitComment(callingEvent){
 }
 function otherStuff(){
 		$.ajax({
-		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10"),
+		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/500e3a35bbcd086968000003/10"),
 		context: document.body
 	}).done(function(data){
 		console.log(data); 
@@ -81,9 +81,15 @@ function getSentimentColor(sentiment)
 }
 
 function postAjax(){
-$.post("http://dev.knotch.it:8080/miniProject/reply",{comment: "Wow this challenge is Ruff!",	knotchId: "51cb71c48c6c54b44d0001ee", userId: "500e3a35bbcd086968000003"},function(result){
-    console.log(result); 
-  });
+$.ajax({
+	url: "http://dev.knotch.it:8080/miniProject/51b35b742573da3965000520/reply",
+	data: {comment: "Wow this challenge is Ruff!",	knotchId: "51b35b742573da3965000520", userId: "500e3a35bbcd086968000003",callback: "?"},
+	success : handleData
+	});
+}
+function handleData(data) {
+    console.log(data);
+    //do some stuff
 }
 function handleBarTesting(){
 	var source   = $("#handleBarsTest").html();
