@@ -1,4 +1,9 @@
-
+function submitComment(callingEvent){
+		console.log(callingEvent); 
+	   if (callingEvent.keyCode == 13) {
+        return false;
+    }
+}
 function otherStuff(){
 		$.ajax({
 		url: "http://127.0.0.1:8080/?proxy="+encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10"),
@@ -11,7 +16,7 @@ function otherStuff(){
 		$("#FollowersStatsNumber").text(data.userInfo.num_followers); 
 		$("#FollowingStatsNumber").text(data.userInfo.num_following); 
 		$("#GloryStatsNumber").text(data.userInfo.num_glory); 
-		var listOfImgTags = $('.userImage')
+		var listOfImgTags = $('.userImage'); 	
 		for(i=0;i<listOfImgTags.length;i++)
 			{ 
 				$(listOfImgTags[i]).attr("src", data.userInfo.profilePicUrl);
@@ -43,12 +48,18 @@ function otherStuff(){
 																   reply[replyCounter].userId.name,
 																   reply[replyCounter].reply));
 					}
-				}
-				thisKnotch.append(generateNewCommentBox());
+				var commentBoxId = 0;
+}				thisKnotch.append(generateNewCommentBox(data.knotches[knotchCounter]._id));
 				knotchContainer.append(thisKnotch);
 		}
 		}
 	});
+}
+function inputFocus(i){
+    if(i.value==i.defaultValue){ i.value="";}
+}
+function inputBlur(i){
+    if(i.value==""){ i.value=i.defaultValue;}
 }
 function getSentimentColor(sentiment)
 {	
@@ -69,6 +80,11 @@ function getSentimentColor(sentiment)
 	return ("background-color: "+colorCode[sentiment]);
 }
 
+function postAjax(){
+$.post("http://dev.knotch.it:8080/miniProject/reply",{comment: "Wow this challenge is Ruff!",	knotchId: "51cb71c48c6c54b44d0001ee", userId: "500e3a35bbcd086968000003"},function(result){
+    console.log(result); 
+  });
+}
 function handleBarTesting(){
 	var source   = $("#handleBarsTest").html();
 	var template = Handlebars.compile(source);
@@ -91,11 +107,11 @@ function generateKnotch(title, opinion, pictureUrl, name, sentimentColor, sentim
 	var html    = template(context);
 	return html; 
 }
-function generateNewCommentBox()
+function generateNewCommentBox(boxID)
 {
 	var source   = $("#newCommentBox").html();
 	var template = Handlebars.compile(source);
-	var context = {};
+	var context = {commentBoxID:boxID};
 	var html    = template(context);
 	return html; 
 }

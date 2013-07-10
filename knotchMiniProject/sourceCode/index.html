@@ -19,9 +19,11 @@
 <script id="knotchComment" type="text/x-handlebars-template">
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="comment">
-		<img src="{{commentorsPicture}}" alt="commentorsAvatar" height="30" width="30">
-		<a class="userName" href="url"> {{commentorsName}}</a>
-		<span class="reply"> &nbsp;"{{commentorsReply}}"</span>
+		<img src="{{commentorsPicture}}" alt="commentorsAvatar" class="replyAvatar" height="30" width="30">
+		<div class = "reply">
+			<a class="userName" href="url"> {{commentorsName}}</a>
+			<span class="reply"> &nbsp;"{{commentorsReply}}"</span>
+		</div>
 	</div></script>
 <script id="knotch" type="text/x-handlebars-template">
 	<div class="smallSpacer"></div>
@@ -32,7 +34,6 @@
 			<a href="url"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
 		</div>
 	<div class="clear-left"></div>
-	<div class="smallSpacer"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class = "usersOpinionBubble" style = "{{insertableStuff}}" >
 		<div class="usersOpinion">{{knotchersOpinion}}</div>
@@ -53,48 +54,47 @@
 <script id="newCommentBox" type="text/x-handlebars-template">
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="comment">
-		<input type="text"  class ="newCommentBox" value="Enter your Comment here. ">
+		<input type="text"  id="{{commentBoxID}}" onkeypress="return submitComment(event)" onfocus="inputFocus(this)" onblur="inputBlur(this)" class ="newCommentBox" value="Comment on this knotch...">
 	</div>
 	<div class="clear-left"></div>
-	<div class="smallSpacer"></div>
 </script>
 </head> 
 <body> 
 	<div id="header" background="assets/nav-bar.png">
 		<div class="logo">
-			<img id="knotchLogo" src="assets/knotch-logo.png" alt="knotchLogo" >
+			<a href="http://www.knotch.it/"><img id="knotchLogo" src="assets/knotch-logo.png" alt="knotchLogo" ></a>
 		</div>
 		<div class="name">
-			<h1 class="userName">Aron Tzimas</h1>
+			<h1 class="userName"></h1>
 		</div>
+		<img width="100%" src="assets/headerGradient.gif">
 		<div class="clear-left"></div>
 	</div>
 	<div class="userInformation">
-		<div class="smallSpacer"></div>
-		<img class = "userImage" src="assets/userPicture.gif" alt="userPicture" width="100">
-		<h1 class ="userName">Aron Tzimas</h1>
+		<img id = "profileImage" class = "userImage" src="" alt="userPicture" height="100" width="100" >
+		<h1 class ="userName">&nbsp;</h1>
 		<h2 id ="userLocation">San Francisco, California</h2>
 		<div class="smallSpacer"></div>
 		<!-- possibly use semantic list definition list with pipe in after property  -->
 		<div id="userStatsContainer">
 			<div class="userStatsSpacer">&nbsp;</div>
-			<div class="testUserStats">
-				<span class ="userStatsNumber" id="TopicStatsNumber"> 		X </span>
+			<div class="UserStats">
+				<span class ="userStatsNumber" id="TopicStatsNumber"> 		 </span>
 				<span class ="userStats" id="topicStats"> Topics</span>
 			</div>
 			<div class="pipeSpacing">|</div>
-			<div class="testUserStats">
-				<span class ="userStatsNumber" id="FollowersStatsNumber"> 	X </span>
+			<div class="UserStats">
+				<span class ="userStatsNumber" id="FollowersStatsNumber"> 	 </span>
 				<span class ="userStats" id="FollowersStats">	Followers</span>
 			</div>
 			<div class="pipeSpacing">|</div>
-			<div class="testUserStats">
-				<span class ="userStatsNumber" id="FollowingStatsNumber"> 	X </span>
+			<div class="UserStats">
+				<span class ="userStatsNumber" id="FollowingStatsNumber"> 	 </span>
 				<span class ="userStats" id="FollowingStats">Following</span>
 			</div>
 			<div class="pipeSpacing">|</div>
-			<div class="testUserStats">
-				<span class ="userStatsNumber" id="GloryStatsNumber"> 		X </span>
+			<div class="UserStats">
+				<span class ="userStatsNumber" id="GloryStatsNumber"> 		 </span>
 				<span class ="userStats" id="GloryStats">Glory</span>
 			</div>
 		</div>
@@ -102,7 +102,6 @@
 		<div class ="colorDispersionContainer">
 			<img src="assets/knotch-sentnements-bar.png" alt="colorDispersion">
 		</div>
-		<div class="smallSpacer"></div>
 	</div>
 	<!--Reusable Topic/Comment Markup-->
 	<div class="knotchContainer">
