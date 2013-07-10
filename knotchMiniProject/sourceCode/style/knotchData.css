@@ -118,7 +118,7 @@
 		margin-left:   50px;
 		margin-top:	   50px;
 		margin-bottom: 50px; 
-		font-family: Aller-Regular, sans-serif;
+		font-family: Lato, sans-serif;
 		font-weight: 300; 
 		font-size: 15; 
 
@@ -152,13 +152,22 @@
 	span.userName{
 		margin-left: 10px;
 	}
+	span.reply {
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 15;	
+	}
 	a.userName{
 		color: #ff6d3a; 
+		margin-left: 10px;
+		font-family: Aller-Regular, sans-serif;
+		font-weight: 300; 
+		font-size: 15;	
 	}
 	input.newCommentBox {
 		border: 3px solid #b3b3b3; 
 		color: #b3b3b3; 
-		width: 90%;
+		width: 95%;
 		margin-top: 10px; 
 		margin-bottom: 10px;  
 		margin-right: 20px; 

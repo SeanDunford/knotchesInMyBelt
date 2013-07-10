@@ -39,12 +39,11 @@ function otherStuff(){
 				if(reply.length > 0){
 					for (var replyCounter =0; replyCounter < reply.length; replyCounter++){
 						
-						knotchComments = generateKnotchComment(reply[replyCounter].userId.profilePicUrl,
+						thisKnotch.append(knotchComments = generateKnotchComment(reply[replyCounter].userId.profilePicUrl,
 																   reply[replyCounter].userId.name,
-																   reply[replyCounter].reply);
+																   reply[replyCounter].reply));
 					}
 				}
-				thisKnotch.append(knotchComments); 
 				thisKnotch.append(generateNewCommentBox());
 				knotchContainer.append(thisKnotch);
 		}
