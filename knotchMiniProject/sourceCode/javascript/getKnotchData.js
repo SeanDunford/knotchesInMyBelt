@@ -1,9 +1,38 @@
-function submitComment(callingEvent){ //can't get this to post the ajax
-		console.log(callingEvent); 
-	   if (callingEvent.keyCode == 13) {
-        return false;
+function newComment_OnKeyPress(callingEvent){ //can't get this to post the ajax
+	   if (callingEvent.keyCode == 13) {      //Was it enter? 
+        postComment(callingEvent.target.value, callingEvent.target.id);
+        callingEvent.target.value = 'Comment on this knotch...';
+        callingEvent.target.blur(); 
+        return false; 
     }
 }
+
+function postComment(comment, knotchId){ 
+	//Pretend this is Ajax {Jedi Mind Trick}
+		var commentorsInfo, 
+			newComment,
+			CommentPlaceHolder; 
+
+		commentorsInfo = getCommentorsUserInformation(); 
+		CommentPlaceHolder = $('#knotch'+knotchId).find('#commentsContainer'); 
+		newComment = generateKnotchComment(commentorsInfo.profilePicUrl, commentorsInfo.name, comment); 
+		CommentPlaceHolder.append(newComment); 
+		console.log(CommentPlaceHolder); 			
+	}
+
+function getCommentorsUserInformation (){
+	//pretend getting from page state or cache or even ajax 
+	return {location: "McLean, Virginia",
+	name: "Bernie Volftsun",
+	_id: "500e3a35bbcd086968000003",
+	num_followers: 45,
+	num_following: 39,
+	num_glory: 152,
+	num_knotches: 51,
+	num_topics: 72,
+	profilePicUrl: "https://graph.facebook.com/100001233207001/picture?type=square&width=200&height=200"}
+
+	}
 function processTweetLinks(text, style) {//jacked and modified from stack Broverflow
     var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
     text = text.replace(exp, "<a href='$1' target='_blank'>$1</a>");
@@ -55,7 +84,7 @@ function getKnotchUserFeed(user, count){
 			var knotchContainer = $(".knotchContainer");
 			for(var knotchCounter = 0; knotchCounter < knotches.length; knotchCounter++){
 				var thisKnotch = $("<div>"); 
-				thisKnotch.attr("class", "knotchNumber"+knotchCounter);
+				thisKnotch.attr("id", "knotch"+data.knotches[knotchCounter]._id);
 				var replies = data.knotches[knotchCounter].replies;
 				var knotchComments; 
 				var borderStyle = ""; 
@@ -73,16 +102,17 @@ function getKnotchUserFeed(user, count){
 							   knotches[knotchCounter].sentiment,
 							   borderStyle,
 							   knotches[knotchCounter]._id)); 
+				var commentContainer = thisKnotch.find('#commentsContainer')
 				if(replies.length > 0){
 					for (var replyCounter =0; replyCounter < replies.length; replyCounter++){
 						var reply = processTweetLinks(replies[replyCounter].reply);
-						thisKnotch.append(knotchComments = generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
+						commentContainer.append(generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
 						   replies[replyCounter].userId.name,
 						   reply));
 
 					}
-				var commentBoxId = 0;
-}				thisKnotch.append(generateNewCommentBox(data.knotches[knotchCounter]._id));
+				}
+				thisKnotch.append(generateNewCommentBox(data.knotches[knotchCounter]._id));
 				knotchContainer.append(thisKnotch);
 		}
 		}
