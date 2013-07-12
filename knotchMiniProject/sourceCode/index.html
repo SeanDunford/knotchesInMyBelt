@@ -7,10 +7,11 @@
 <script src="/javascript/handlebars.js" type="text/javascript"></script>
 <script type="text/javascript">
 	window.onload = function (event) {
-		var userID = "500e3b57bbcd08696800000a",
+		var userID = "500e3a35bbcd086968000003",
 			count = "10";
 			window.isProxyOn = true; //make false if not using the wsgy server I built
-  getKnotchUserFeed( userID, count);}
+  getKnotchUserFeed( userID, count);
+}
 </script>
 <script id="handleBarsTest" type="text/x-handlebars-template">
 	<div class="entry">
@@ -33,10 +34,12 @@
 	<div class="smallSpacer"></div>
 	<div class="knotchHeader">
 		<div class="knotchHeaderSpacer">&nbsp;</div>
-		<div class="knotchHeaderTitle"><a class ="knotchTitle" href="http://www.knotch.it/topic/{{knotchTitle}}">{{knotchTitle}}</div>
+		<div class="knotchHeaderTitle"><a class ="knotchTitle" href="http://www.knotch.it/topic/{{knotchTitle}}">{{knotchTitle}}
+		</div>
 		<div class="knotchHeaderArrow">
 			<a href="http://www.knotch.it/topic/{{topicID}}"><img src = "assets\topic-arrow.png" alt="goToTopic"></a>
 		</div>
+	</div>
 	<div class="clear-left"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class = "usersOpinionBubble" style = "background-color: {{color}}; border:{{border}};" >
@@ -53,12 +56,12 @@
 		<a href="http://www.knotch.it/{{knotchersName}}"><img width="60px" class="userImage" src="{{knotchersPicture}}"></a><a class = "knotchTitle"href="http://www.knotch.it/{{knotchersName}}"><span class ="UserName">{{knotchersName}}</span></a>
 	</div>
 	<!-- Reusable comment Code -->
-	<div class = "commentsContainer"></div>
+	<div id = "commentsContainer"></div>
 </script>
 <script id="newCommentBox" type="text/x-handlebars-template">
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="comment">
-		<input type="text"  id="{{commentBoxID}}" onkeypress="return submitComment(event)" onfocus="inputFocus(this)" onblur="inputBlur(this)" class ="newCommentBox" value="Comment on this knotch...">
+		<input type="text"  id="{{commentBoxID}}" onkeypress="return newComment_OnKeyPress(event)" onfocus="inputFocus(this)" onblur="inputBlur(this)" class ="newCommentBox" value="Comment on this knotch...">
 	</div>
 	<div class="clear-left"></div>
 </script>
