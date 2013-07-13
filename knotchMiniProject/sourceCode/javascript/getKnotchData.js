@@ -53,7 +53,7 @@ function postComment(comment, knotchId) {
     commentorsInfo = getCommentorsUserInformation();
     commentPlaceHolder = $('#knotch' + knotchId).find('#commentsContainer');
     newComment = generateKnotchComment(commentorsInfo.profilePicUrl, commentorsInfo.name, comment);
-    CommentPlaceHolder.append(newComment);             
+    commentPlaceHolder.append(newComment);           
 }
 
 function generateNewCommentBox(boxID) {
@@ -107,7 +107,10 @@ function getKnotchUserFeed(user, count) {
             knotchComments, 
             borderStyle,
             sentimentColor, 
-            commentContainer;
+            commentContainer,
+            i,
+            replies,
+            comment;
 
         if (window.isProxyOn) {
             knotchUrl = "http://127.0.0.1:8080/?proxy=" + encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
@@ -144,7 +147,7 @@ function getKnotchUserFeed(user, count) {
                 knotchComments;
                 borderStyle = "";
                 sentimentColor = getSentimentColor(knotches[knotchCounter].sentiment);
-                    if (knotches[knotchCounter].sentiment ==== 10) {
+                    if (knotches[knotchCounter].sentiment === 10) {
                         borderStyle = "1px solid #000000";
                     }
                 comment = processTweetLinks(knotches[knotchCounter].comment, 1);
