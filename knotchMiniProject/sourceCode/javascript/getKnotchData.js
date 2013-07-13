@@ -1,5 +1,7 @@
+var knotchMiniProj = knotchMiniProj || {};
+
 /*global window, $, Handlebars, nomen: true*/
-function getCommentorsUserInformation() {
+knotchMiniProj.getCommentorsUserInformation = function() {
     'use strict';
     //pretend getting from page state or cache or even ajax 
     return {location: "McLean, Virginia",
@@ -13,7 +15,7 @@ function getCommentorsUserInformation() {
         profilePicUrl: "https://graph.facebook.com/100001233207001/picture?type=square&width=200&height=200"}
 }
 
-function generateKnotchComment(pictureUrl, name, reply) {
+knotchMiniProj.generateKnotchComment = function (pictureUrl, name, reply) {
     'use strict';
     var source, template, context, html;
     if (window.turnProxyOn) {
@@ -27,7 +29,7 @@ function generateKnotchComment(pictureUrl, name, reply) {
     return html;
 }
 
-function generateKnotch(title, opinion, pictureUrl, name, sentimentColor, sentiment, borderStyle, knotchID) {
+knotchMiniProj.generateKnotch = function (title, opinion, pictureUrl, name, sentimentColor, sentiment, borderStyle, knotchID) {
     'use strict';
     var source, template, context, html;
     source   = $("#knotch").html();
@@ -43,20 +45,20 @@ function generateKnotch(title, opinion, pictureUrl, name, sentimentColor, sentim
     html    = template(context);
     return html;
 }
-function postComment(comment, knotchId) {
+knotchMiniProj.postComment = function (comment, knotchId) {
     'use strict';
     //Pretend this is Ajax {Jedi Mind Trick}
     var commentorsInfo,
         newComment,
         commentPlaceHolder;
 
-    commentorsInfo = getCommentorsUserInformation();
+    commentorsInfo = knotchMiniProj.getCommentorsUserInformation();
     commentPlaceHolder = $('#knotch' + knotchId).find('#commentsContainer');
-    newComment = generateKnotchComment(commentorsInfo.profilePicUrl, commentorsInfo.name, comment);
+    newComment = knotchMiniProj.generateKnotchComment(commentorsInfo.profilePicUrl, commentorsInfo.name, comment);
     commentPlaceHolder.append(newComment);           
 }
 
-function generateNewCommentBox(boxID) {
+knotchMiniProj.generateNewCommentBox = function (boxID) {
     'use strict';
     var source, template, context, html;
     source   = $("#newCommentBox").html();
@@ -66,17 +68,17 @@ function generateNewCommentBox(boxID) {
     return html;
 }
 
-function newComment_OnKeyPress(callingEvent) {
+knotchMiniProj.newComment_OnKeyPress = function (callingEvent) {
     'use strict';//can't get this to post the ajax
     if (callingEvent.keyCode === 13) {      //Was it enter? 
-        postComment(callingEvent.target.value, callingEvent.target.id);
+        knotchMiniProj.postComment(callingEvent.target.value, callingEvent.target.id);
         callingEvent.target.value = 'Comment on this knotch...';
         callingEvent.target.blur();
         return false;
     }
 }
 
-function processTweetLinks(text, style) {
+knotchMiniProj.processTweetLinks = function (text, style) {
     'use strict';//jacked and modified from stack Broverflow
     var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
     text = text.replace(exp, "<a href='$1' target='_blank'>$1</a>");
@@ -95,7 +97,7 @@ function processTweetLinks(text, style) {
     }
     return text;
 }
-function getKnotchUserFeed(user, count) {
+knotchMiniProj.getKnotchUserFeed = function (user, count) {
     'use strict';
         var knotchUrl, 
             knotches, 
@@ -146,13 +148,13 @@ function getKnotchUserFeed(user, count) {
                 replies = data.knotches[knotchCounter].replies;
                 knotchComments;
                 borderStyle = "";
-                sentimentColor = getSentimentColor(knotches[knotchCounter].sentiment);
+                sentimentColor = knotchMiniProj.getSentimentColor(knotches[knotchCounter].sentiment);
                     if (knotches[knotchCounter].sentiment === 10) {
                         borderStyle = "1px solid #000000";
                     }
-                comment = processTweetLinks(knotches[knotchCounter].comment, 1);
+                comment = knotchMiniProj.processTweetLinks(knotches[knotchCounter].comment, 1);
                 thisKnotch.append(
-                generateKnotch(knotches[knotchCounter].topic, 
+                knotchMiniProj.generateKnotch(knotches[knotchCounter].topic, 
                                comment, 
                                knotches[knotchCounter].userId.profilePicUrl, 
                                knotches[knotchCounter].userId.name,
@@ -163,28 +165,28 @@ function getKnotchUserFeed(user, count) {
                 commentContainer = thisKnotch.find('#commentsContainer')
                 if (replies.length > 0) {
                     for (var replyCounter =0;replyCounter < replies.length;replyCounter++) {
-                        var reply = processTweetLinks(replies[replyCounter].reply);
-                        commentContainer.append(generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
+                        var reply = knotchMiniProj.processTweetLinks(replies[replyCounter].reply);
+                        commentContainer.append(knotchMiniProj.generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
                            replies[replyCounter].userId.name,
                            reply));
 
                     }
                 }
-                thisKnotch.append(generateNewCommentBox(data.knotches[knotchCounter]._id));
+                thisKnotch.append(knotchMiniProj.generateNewCommentBox(data.knotches[knotchCounter]._id));
                 knotchContainer.append(thisKnotch);
         }
         }
     });
 }
-function inputFocus(i) {
+knotchMiniProj.inputFocus = function (i) {
     'use strict';
     if (i.value===i.defaultValue) { i.value="";}
 }
-function inputBlur(i) {
+knotchMiniProj.inputBlur = function (i) {
     'use strict';
     if (i.value==="") { i.value=i.defaultValue;}
 }
-function getSentimentColor(sentiment) {
+knotchMiniProj.getSentimentColor = function(sentiment) {
     'use strict';
     var colorCode = {
     "0": ["#2e5ca6"],    
@@ -198,14 +200,14 @@ function getSentimentColor(sentiment) {
     "16": ["#ffa02d"],    
     "18": ["#ff6d3a"],    
     "20": ["#ee443a"]    
-};       
+	};       
     //Don't forget. What if it's a white bubble?
     return (colorCode[sentiment]);
 }
 
-function postAjax() {
+knotchMiniProj.postAjax = function() {
     'use strict';
-$.ajax({
+	$.ajax({
     url: "http://dev.knotch.it:8080/miniProject/51b35b742573da3965000520/reply",
     data: {comment: "Wow this challenge is Ruff!",
     knotchId: "51b35b742573da3965000520",
@@ -214,7 +216,8 @@ $.ajax({
     success : handleData
     });
 }
-function handleBarTesting() {
+
+knotchMiniProj.handleBarTesting = function() {
     'use strict';
    var source, template, context, html; 
      source   = $("#handleBarsTest").html();

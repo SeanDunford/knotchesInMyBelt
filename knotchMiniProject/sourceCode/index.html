@@ -10,8 +10,7 @@
 		var userID = "5019296f1f5dc55304003c58",
 			count = "100";
 			window.isProxyOn = true; //make false if not using the wsgy server I built
-  //knotchMiniProject.
-  getKnotchUserFeed( userID, count);
+  			knotchMiniProj.getKnotchUserFeed( userID, count);
 }
 </script>
 <script id="handleBarsTest" type="text/x-handlebars-template">
@@ -49,7 +48,7 @@
 	<div class="clear-left"></div>
 	<div class="knotchBoxSpacer">&nbsp;</div>
 	<div class="knotchBox">
-		<img class ="knotchTriangle" src = "knotchBoxes\triangle{{triangleCode}}.png" alt="goToKnotch">
+		<img class ="knotchTriangle" src = "\knotchBoxes\triangle{{triangleCode}}.png" alt="goToKnotch">
 	</div>
 	<div class="smallSpacer"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
@@ -62,7 +61,7 @@
 <script id="newCommentBox" type="text/x-handlebars-template">
 	<div class="usersOpinionSpacer">&nbsp;</div>
 	<div class="comment">
-		<input type="text"  id="{{commentBoxID}}" onkeypress="return newComment_OnKeyPress(event)" onfocus="inputFocus(this)" onblur="inputBlur(this)" class ="newCommentBox" value="Comment on this knotch...">
+		<input type="text"  id="{{commentBoxID}}" onkeypress="return knotchMiniProj.newComment_OnKeyPress(event)" onfocus="knotchMiniProj.inputFocus(this)" onblur="knotchMiniProj.inputBlur(this)" class ="newCommentBox" value="Comment on this knotch...">
 	</div>
 	<div class="clear-left"></div>
 </script>
