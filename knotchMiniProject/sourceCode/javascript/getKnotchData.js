@@ -116,7 +116,6 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
 
         if (window.isProxyOn) {
             knotchUrl = window.serverAddress + encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
-            console.log
         }
         else {
             knotchUrl = encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
