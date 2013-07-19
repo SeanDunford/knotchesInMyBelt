@@ -120,11 +120,13 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
         else {
             knotchUrl = encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
         }
+        console.log("this is the knotch URL");
         console.log(knotchUrl); 
         $.ajax({
         url: knotchUrl,
         context: document.body
     }).done(function(data) {
+        console.log("this is the knotch data"); 
         console.log(data);
         knotches = data.knotches;
         $("#userLocation").text(data.userInfo.location);
