@@ -120,10 +120,10 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
         else {
             knotchUrl = encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
         } 
-        knotchUrl = "http://seandunford.pythonAnywhere.com/static/?proxy=http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10";
+        knotchUrl = "http://seandunford.pythonAnywhere.com/?proxy=http://dev.knotch.it:8080/miniProject/user_feed/5019296f1f5dc55304003c58/10";
         console.log("this is the knotch URL");
         console.log(knotchUrl);
-        
+
         $.ajax({
         url: knotchUrl,
         context: document.body
