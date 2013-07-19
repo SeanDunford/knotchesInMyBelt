@@ -19,7 +19,7 @@ knotchMiniProj.generateKnotchComment = function (pictureUrl, name, reply) {
     'use strict';
     var source, template, context, html;
     if (window.turnProxyOn) {
-        pictureUrl = "http://127.0.0.1:8080/?proxy=" + pictureUrl;
+        pictureUrl = window.serverAddress + pictureUrl;
     }
 
     source   = $("#knotchComment").html();
@@ -45,7 +45,6 @@ knotchMiniProj.generateKnotch = function (title, opinion, pictureUrl, name, sent
     html    = template(context);
     return html;
 }
-
 knotchMiniProj.postComment = function (comment, knotchId) {
     'use strict';
     //Pretend this is Ajax {Jedi Mind Trick}
@@ -98,7 +97,6 @@ knotchMiniProj.processTweetLinks = function (text, style) {
     }
     return text;
 }
-
 knotchMiniProj.getKnotchUserFeed = function (user, count) {
     'use strict';
         var knotchUrl, 
@@ -117,53 +115,46 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
             comment;
 
         if (window.isProxyOn) {
-            knotchUrl = "http://127.0.0.1:8080/?proxy=" + encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
+            knotchUrl = window.serverAddress + encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
         }
         else {
             knotchUrl = encodeURIComponent("http://dev.knotch.it:8080/miniProject/user_feed/" + user + "/" + count);
         }
         $.ajax({
-            url: knotchUrl,
-            context: document.body
-         }).done(funciton(data){
-            knotchMiniProj.fillFeed(data); 
-         }); 
-}
-         knotchMiniProj.fillInfo = function(userInfo) {
-            $("#userLocation").text(userInfo.location);
-            $("#TopicStatsNumber").text(userInfo.num_topics);
-            $("#FollowersStatsNumber").text(userInfo.num_followers);
-            $("#FollowingStatsNumber").text(userInfo.num_following);
-            $("#GloryStatsNumber").text(userInfo.num_glory);       
-            listOfImgTags = $('.userImage');    
-            for(i=0;i<listOfImgTags.length;i++){ 
-                $(listOfImgTags[i]).attr("src", userInfo.profilePicUrl);
+        url: knotchUrl,
+        context: document.body
+    }).done(function(data) {
+        knotches = data.knotches;
+        $("#userLocation").text(data.userInfo.location);
+        $("#TopicStatsNumber").text(data.userInfo.num_topics);
+        $("#FollowersStatsNumber").text(data.userInfo.num_followers);
+        $("#FollowingStatsNumber").text(data.userInfo.num_following);
+        $("#GloryStatsNumber").text(data.userInfo.num_glory);
+        listOfImgTags = $('.userImage');    
+        for(i=0;i<listOfImgTags.length;i++)
+            { 
+                $(listOfImgTags[i]).attr("src", data.userInfo.profilePicUrl);
             }
-            listOfNameTags = $('.userName');
-            for(i=0;i<listOfNameTags.length;i++){ 
-                $(listOfNameTags[i]).text(userInfo.name)
+        listOfNameTags = $('.userName')
+        for(i=0;i<listOfNameTags.length;i++)
+            { 
+                $(listOfNameTags[i]).text(data.userInfo.name)
             }
-         }
-        knotchMiniProj.fillKnotches = function(knotches) {       
-            var knotchContainer, knotchCounter, thisKnotch, replies, knotchComments, borderStyle, sentimentColor,
-                comment, commentContainer, replyCounter, reply; 
-            if (knotches.length > 0) {
-                knotchContainer = $(".knotchContainer");
-                for(knotchCounter = 0;knotchCounter < knotches.length;knotchCounter++) {
-                    thisKnotch = $("<div>");
-                    thisKnotch.attr("id", "knotch" +data.knotches[knotchCounter]._id);
-                    replies = data.knotches[knotchCounter].replies;
-                    sentimentColor = knotchMiniProj.getSentimentColor(knotches[knotchCounter].sentiment);
+        if (knotches.length > 0) {
+            knotchContainer = $(".knotchContainer");
+            for(knotchCounter = 0;knotchCounter < knotches.length;knotchCounter++) {
+                thisKnotch = $("<div>");
+                thisKnotch.attr("id", "knotch" +data.knotches[knotchCounter]._id);
+                replies = data.knotches[knotchCounter].replies;
+                knotchComments;
+                borderStyle = "";
+                sentimentColor = knotchMiniProj.getSentimentColor(knotches[knotchCounter].sentiment);
                     if (knotches[knotchCounter].sentiment === 10) {
                         borderStyle = "1px solid #000000";
                     }
-                    else 
-                        borderStyle = "";
-                    //Should be changed to not be in html
-                    comment = knotchMiniProj.processTweetLinks(knotches[knotchCounter].comment, 1);
-                    
-                    thisKnotch.append(
-                    knotchMiniProj.generateKnotch(knotches[knotchCounter].topic, 
+                comment = knotchMiniProj.processTweetLinks(knotches[knotchCounter].comment, 1);
+                thisKnotch.append(
+                knotchMiniProj.generateKnotch(knotches[knotchCounter].topic, 
                                comment, 
                                knotches[knotchCounter].userId.profilePicUrl, 
                                knotches[knotchCounter].userId.name,
@@ -171,11 +162,11 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
                                knotches[knotchCounter].sentiment,
                                borderStyle,
                                knotches[knotchCounter]._id));
-                    commentContainer = thisKnotch.find('#commentsContainer')
-                    if (replies.length > 0) {
-                        for (replyCounter =0;replyCounter < replies.length;replyCounter++) {
-                            reply = knotchMiniProj.processTweetLinks(replies[replyCounter].reply);
-                            commentContainer.append(knotchMiniProj.generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
+                commentContainer = thisKnotch.find('#commentsContainer')
+                if (replies.length > 0) {
+                    for (var replyCounter =0;replyCounter < replies.length;replyCounter++) {
+                        var reply = knotchMiniProj.processTweetLinks(replies[replyCounter].reply);
+                        commentContainer.append(knotchMiniProj.generateKnotchComment(replies[replyCounter].userId.profilePicUrl,
                            replies[replyCounter].userId.name,
                            reply));
 
@@ -184,26 +175,17 @@ knotchMiniProj.getKnotchUserFeed = function (user, count) {
                 thisKnotch.append(knotchMiniProj.generateNewCommentBox(data.knotches[knotchCounter]._id));
                 knotchContainer.append(thisKnotch);
         }
-        knotchMiniProj.fillFeed = function(data) {
-            var knotches, userInfo;
-            knotches = data.knotches;
-            userInfo = data.userInfo;
-
-            knotchMiniProj.fillInfo(userInfo); 
-            knotchMiniProj.fillKnotches(knotches);
         }
-
-
+    });
+}
 knotchMiniProj.inputFocus = function (i) {
     'use strict';
     if (i.value===i.defaultValue) { i.value="";}
 }
-
 knotchMiniProj.inputBlur = function (i) {
     'use strict';
     if (i.value==="") { i.value=i.defaultValue;}
 }
-
 knotchMiniProj.getSentimentColor = function(sentiment) {
     'use strict';
     var colorCode = {

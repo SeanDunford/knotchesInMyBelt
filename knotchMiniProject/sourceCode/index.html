@@ -1,15 +1,18 @@
 <html> 
 <head> 
 <link href="http://fnt.webink.com/wfs/webink.css/?project=29039664-B1EF-4215-8FF3-76BDE6923E92&fonts=880096C9-42EC-CFB6-C094-7540101C8F7B:f=Aller-BoldItalic,521D5111-7D3C-B8EC-88B6-BBED2BE5F224:f=Aller-LightItalic,32A3E230-3101-A662-F6D5-D8B9D0A38A5B:f=Aller-Regular,1B6C2E6C-BB21-53D3-2175-C814D91AD16C:f=Aller-Bold,C7662775-65E4-3DE5-DE19-D61377E1BE79:f=Aller-Light,9C5DF801-C745-E177-908F-369BCECD52B7:f=Aller-Italic" rel="stylesheet" type="text/css"/><link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-<link rel=StyleSheet href="/style/knotchData.css" type="text/css">
+<link rel=StyleSheet href="style/knotchData.css" type="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script src="/javascript/getKnotchData.js" type="text/javascript"></script>	
-<script src="/javascript/handlebars.js" type="text/javascript"></script>
+<script src="javascript/getKnotchData.js" type="text/javascript"></script>	
+<script src="javascript/handlebars.js" type="text/javascript"></script>
 <script type="text/javascript">
 	window.onload = function (event) {
 		var userID = "5019296f1f5dc55304003c58",
 			count = "100";
 			window.isProxyOn = true; //make false if not using the wsgy server I built
+  			if(window.isProxyOn){
+  				window.serverAddress = "http://127.0.0.1:8080/?proxy="; //should probably be window.location
+  			}
   			knotchMiniProj.getKnotchUserFeed( userID, count);
 }
 </script>
@@ -48,7 +51,7 @@
 	<div class="clear-left"></div>
 	<div class="knotchBoxSpacer">&nbsp;</div>
 	<div class="knotchBox">
-		<img class ="knotchTriangle" src = "/knotchBoxes/triangle{{triangleCode}}.png" alt="goToKnotch">
+		<img class ="knotchTriangle" src = "knotchBoxes/triangle{{triangleCode}}.png" alt="goToKnotch">
 	</div>
 	<div class="smallSpacer"></div>
 	<div class="usersOpinionSpacer">&nbsp;</div>
